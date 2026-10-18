@@ -18,7 +18,7 @@ permissions:
   contents: read
   id-token: write
 concurrency:
-  group: media-${ github.event_name }-${ github.event.issue.number || github.event.client_payload.job_id || inputs.job_id || github.run_id }
+  group: media-${{ github.event_name }}-${{ github.event.issue.number || github.event.client_payload.job_id || inputs.job_id || github.run_id }}
   cancel-in-progress: false
 jobs:
   media:
@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      GCP_PROJECT_ID: ${ vars.GCP_PROJECT_ID }
-      MAX_VIDEO_SECONDS: ${ vars.MAX_VIDEO_SECONDS || '5' }
-      MAX_VIDEO_RESOLUTION: ${ vars.MAX_VIDEO_RESOLUTION || '360p' }
+      GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+      MAX_VIDEO_SECONDS: ${{ vars.MAX_VIDEO_SECONDS || '5' }}
+      MAX_VIDEO_RESOLUTION: ${{ vars.MAX_VIDEO_RESOLUTION || '360p' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,14 +52,14 @@ jobs:
         if: steps.prepare.outputs.mode == 'produce'
         uses: google-github-actions/auth@v3
         with:
-          project_id: ${ vars.GCP_PROJECT_ID }
-          workload_identity_provider: ${ vars.GCP_WIF_PROVIDER }
-          service_account: ${ vars.GCP_SERVICE_ACCOUNT }
+          project_id: ${{ vars.GCP_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
       - name: Generate media
         if: steps.prepare.outputs.mode == 'produce'
         env:
-          CLOUDINARY_URL: ${ secrets.CLOUDINARY_URL }
-        run: node src/cli.mjs --file request.json --job-id "${ steps.prepare.outputs.job_id }" --result result.json --out out
+          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+        run: node src/cli.mjs --file request.json --job-id "${{ steps.prepare.outputs.job_id }}" --result result.json --out out
       - name: Job summary
         if: always()
         run: |
@@ -73,7 +73,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: media-${ github.run_id }
+          name: media-${{ github.run_id }}
           path: |
             result.json
             out/
