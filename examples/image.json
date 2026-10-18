@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "image",
+  "prompt": "A friendly clay robot reading in a library, no text",
+  "model": "gemini-3.1-flash-lite-image",
+  "aspect_ratio": "1:1",
+  "image_size": "1K"
+}

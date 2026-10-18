@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "video",
+  "prompt": "Cinematic tracking shot of a red paper airplane floating in a sunny room, gentle motion.",
+  "model": "gemini-omni-1.1-flash-preview",
+  "duration_seconds": 3,
+  "resolution": "360p",
+  "aspect_ratio": "16:9"
+}

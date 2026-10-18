@@ -1,0 +1,81 @@
+name: Vertex AI Media Factory
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: "Optional job ID"
+        required: false
+        type: string
+      request_json:
+        description: "Media request JSON; see docs/AGENT.md"
+        required: true
+        type: string
+  repository_dispatch:
+    types: [media.generate]
+  issues:
+    types: [opened]
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: media-${ github.event_name }-${ github.event.issue.number || github.event.client_payload.job_id || inputs.job_id || github.run_id }
+  cancel-in-progress: false
+jobs:
+  media:
+    if: >-
+      github.event_name != 'issues' ||
+      (github.event.action == 'opened' &&
+       github.event.issue.state == 'open' &&
+       github.event.issue.user.login == 'addvaluewithai-hub' &&
+       github.actor == 'addvaluewithai-hub')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GCP_PROJECT_ID: ${ vars.GCP_PROJECT_ID }
+      MAX_VIDEO_SECONDS: ${ vars.MAX_VIDEO_SECONDS || '5' }
+      MAX_VIDEO_RESOLUTION: ${ vars.MAX_VIDEO_RESOLUTION || '360p' }
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Run offline tests
+        run: npm test
+      - name: Validate and prepare (no charge)
+        id: prepare
+        run: node src/prepare.mjs
+      - name: Authenticate to Google Cloud
+        if: steps.prepare.outputs.mode == 'produce'
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${ vars.GCP_PROJECT_ID }
+          workload_identity_provider: ${ vars.GCP_WIF_PROVIDER }
+          service_account: ${ vars.GCP_SERVICE_ACCOUNT }
+      - name: Generate media
+        if: steps.prepare.outputs.mode == 'produce'
+        env:
+          CLOUDINARY_URL: ${ secrets.CLOUDINARY_URL }
+        run: node src/cli.mjs --file request.json --job-id "${ steps.prepare.outputs.job_id }" --result result.json --out out
+      - name: Job summary
+        if: always()
+        run: |
+          if [ -f result.json ]; then
+            echo '## Media Factory Result' >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+            cat result.json >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload result and media
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-${ github.run_id }
+          path: |
+            result.json
+            out/
+          if-no-files-found: ignore
+          retention-days: 7
