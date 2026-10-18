@@ -33,7 +33,7 @@ async function generate(req,project){
   const url="https://aiplatform.googleapis.com/v1beta1/projects/"+project+"/locations/global/interactions";
   const input=[{type:"text",text:req.prompt}];
   if(req.reference_image_uri) input.push({type:"image",uri:req.reference_image_uri,mime_type:/\.jpe?g$/i.test(req.reference_image_uri)?"image/jpeg":"image/png"});
-  const r=await post(url,{model:req.model,input,response_format:[{type:"video",delivery:"inline",aspect_ratio:req.aspect_ratio,resolution:req.resolution,duration:req.duration_seconds+"s"}],generation_config:{video_config:{task:req.reference_image_uri?"image_to_video":"text_to_video"}}});
+  const r=await post(url,{model:req.model,input,response_format:[{type:"video",delivery:"uri",aspect_ratio:req.aspect_ratio,resolution:req.resolution,duration:req.duration_seconds+"s"}],generation_config:{video_config:{task:req.reference_image_uri?"image_to_video":"text_to_video"}}});
   if(r.status && r.status!=="completed") fail("Video status "+r.status+" (interaction "+(r.id??"unknown")+")");
   const p=videoPart(r);
   if(!p) fail("Omni returned no inline video");
