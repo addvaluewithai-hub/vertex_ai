@@ -62,6 +62,13 @@ async function main(){
     console.log("DRY RUN: zero Google Cloud requests");
     return;
   }
+  if(!process.env.CLOUDINARY_URL){
+    result={...result,status:"failed",error:"Missing Actions Secret CLOUDINARY_URL. Production requires durable Cloudinary delivery because GitHub artifact storage quota is exhausted."};
+    await writeFile(outputPath,JSON.stringify(result,null,2)+"\n");
+    console.error(result.error);
+    process.exitCode=1;
+    return; // IMPORTANT: no paid API call without delivery credentials.
+  }
   result={...result,billable:true,status:"started"};
   try{
     const item=await generate(req,process.env.GCP_PROJECT_ID);
@@ -71,6 +78,7 @@ async function main(){
     const name=jobId+"."+ext,local=join(outDir,name);
     await writeFile(local,item.bytes);
     const url=await publish(local,req.kind,jobId);
+    if(!url) fail("Cloudinary upload failed; model request may already have incurred usage charges.");
     result={...result,status:"completed",completed_at:new Date().toISOString(),
       usage_tokens:item.usage,interaction_id:item.interaction_id??null,
       output:{filename:"out/"+name,mime_type:item.mime,bytes:item.bytes.length,...(url?{url}:{})},
@@ -80,6 +88,7 @@ async function main(){
   }catch(e){result={...result,status:"failed",error:String(e.message).slice(0,500)};process.exitCode=1;}
   await writeFile(outputPath,JSON.stringify(result,null,2)+"\n");
   console.log("Job "+jobId+": "+result.status);
+  if(result.output?.url) console.log("Media URL: "+result.output.url);
   if(result.status==="failed") console.error(result.error);
 }
 main().catch(e=>{console.error("Factory error: "+e.message);process.exitCode=1;});

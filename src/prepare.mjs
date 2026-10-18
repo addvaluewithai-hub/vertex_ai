@@ -27,7 +27,7 @@ async function main(){
   const request=validateRequest(raw);
   await writeFile("request.json",JSON.stringify(request,null,2)+"\n");
   await writeFile("job-id.txt",jobId+"\n");
-  await writeFile("result.json",JSON.stringify({id:jobId,status:"validated",mode:request.mode,kind:request.kind,model:request.model,billable:false},null,2)+"\n");
+  await writeFile("result.json",JSON.stringify({id:jobId,status:request.mode==="produce"?"queued":"validated",mode:request.mode,kind:request.kind,model:request.model,billable:false},null,2)+"\n");
   if(process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT,"mode="+request.mode+"\njob_id="+jobId+"\n");
   console.log("Request validated: "+jobId+" ("+request.mode+")");
 }

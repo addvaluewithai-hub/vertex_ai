@@ -55,7 +55,7 @@ Optional cost-guard Variables:
 - MAX_VIDEO_SECONDS = 5 by default; 3 through 10 supported.
 - MAX_VIDEO_RESOLUTION = 360p by default; raise to 720p, 1080p or 4k only after approving higher spend.
 
-Optional Actions **Secret**: CLOUDINARY_URL in the format cloudinary://API_KEY:API_SECRET@CLOUD_NAME, matching your Gemini TTS factory. Do not put credentials in Variables or commit them. Copying a Cloudinary secret between repos must be done manually or through permitted secure admin tooling.
+**Required for production** Actions **Secret**: CLOUDINARY_URL in the format cloudinary://API_KEY:API_SECRET@CLOUD_NAME, matching your Gemini TTS factory. GitHub artifact uploads currently fail because your account has exhausted artifact storage. The factory therefore requires durable Cloudinary delivery before making any paid Google API request. Do not put credentials in Variables or commit them. Copying a Cloudinary secret between repos must be done manually or through permitted secure admin tooling.
 
 ## Step 4. Dry-run, then minimal paid pilot
 
@@ -69,7 +69,7 @@ An optional reference_image_uri pointing to gs:// requires that the dedicated se
 
 ## Billing safeguards
 
-Enable a Google Cloud Billing budget alert before production; **an alert is not a hard spending cap**. Restrict service quotas if available. Avoid blind retries, concurrent paid jobs and unattended bulk dispatch. Failing after an API call can still incur charges. GitHub artifacts are deleted after 7 days; Cloudinary may charge separately for storage/transformations.
+Enable a Google Cloud Billing budget alert before production; **an alert is not a hard spending cap**. Restrict service quotas if available. Avoid blind retries, concurrent paid jobs and unattended bulk dispatch. Failing after an API call can still incur charges. GitHub artifact upload is best-effort until you free the storage quota. Actions summaries and Issue receipts remain accessible without artifacts. Cloudinary may charge separately for storage/transformations.
 
 Official references:
 - https://github.com/google-github-actions/auth

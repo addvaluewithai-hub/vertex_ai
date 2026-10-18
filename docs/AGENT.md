@@ -71,13 +71,13 @@ Actions -> Vertex AI Media Factory -> Run workflow. Set request_json to a comple
 
 ## Result and delivery
 
-Actions run artifact media-RUN_ID contains result.json and out/JOB_ID.png, .jpg, .webp, or .mp4. If the optional CLOUDINARY_URL secret is set and upload succeeds, result.output.url is a public Cloudinary link (similar to the Gemini TTS factory).
+Read completed outputs via the Actions run's job summary or, for Issue-gateway submissions, the reply comment on the Issue. A production job **requires** CLOUDINARY_URL Secret and publishes the file at result.output.url. The GitHub artifact upload is best effort: this account is currently over its GitHub Actions artifact-storage quota. If you free quota, media-RUN_ID artifacts will also contain result.json and out/JOB_ID.png, .jpg, .webp, or .mp4.
 
 - status validated, billable false: dry-run, NO media and NO Google Cloud billing.
 - status completed, billable true: media generated, output filename/mime/bytes, optional Cloudinary URL and github_run_url.
 - status failed: inspect error, but some failed attempts may still be billable.
 
-GitHub artifact retention is 7 days. Without Cloudinary there is no persistent public URL.
+GitHub artifact retention is 7 days where artifact uploads are possible. Missing Cloudinary credentials block production before any Google Cloud call.
 
 ## Security & billing
 

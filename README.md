@@ -6,7 +6,7 @@ A private, asynchronous image + video generation factory built for autonomous ag
 - **Video:** Gemini Omni 1.1 Flash Preview via the Google Cloud Interactions API (text-to-video; optional GCS reference image).
 - **Triggers:** `repository_dispatch` (event `media.generate`), manual `workflow_dispatch`, or owner-created JSON GitHub Issue.
 - **Auth:** GitHub OIDC → Google Cloud Workload Identity Federation → service account. No Google API keys or service account key JSON.
-- **Outputs:** `result.json` + PNG/JPG or MP4 in a GitHub Actions artifact. Optional Cloudinary public URL when `CLOUDINARY_URL` secret exists.
+- **Outputs:** `result.json` (Actions summary and owner-Issue receipt) plus a Cloudinary media URL. GitHub artifact upload is best-effort while the account's artifact quota is exhausted.
 - **Cost guard:** Explicit `mode: "produce"` to make a billable request. `mode: "dry-run"` validates without cloud credentials or spend. One output per job; videos default to 3s/360p.
 
 Read [docs/AGENT.md](docs/AGENT.md) if you are an agent, and [docs/SETUP.md](docs/SETUP.md) to connect your $300 Google Cloud trial project.
@@ -35,7 +35,7 @@ Set `mode` to `produce` only after confirming billing/model quota and authorizin
 | `GCP_WIF_PROVIDER` | `projects/123456789/locations/global/workloadIdentityPools/github-media/providers/vertex-ai` |
 | `GCP_SERVICE_ACCOUNT` | `vertex-media-factory@my-google-cloud-project.iam.gserviceaccount.com` |
 
-Optional **Actions Secret**: `CLOUDINARY_URL`, containing `cloudinary://KEY:SECRET@CLOUD_NAME` (same convention as the TTS factory). Credentials belong in **Secrets**, never Variables or committed files.
+Required **Actions Secret** for paid jobs: `CLOUDINARY_URL`, containing `cloudinary://KEY:SECRET@CLOUD_NAME` (same convention as the TTS factory). Your GitHub artifact storage quota was exhausted during the pilot. To avoid paid jobs with nowhere reliable to save media, production refuses to start until Cloudinary is configured. Credentials belong in **Secrets**, never Variables or committed files.
 
 The presence of $300 credits alone does **not** guarantee preview model access or eligibility of individual SKUs. Test first and inspect Google Cloud billing; a budget alert is not a hard spending limit.
 
