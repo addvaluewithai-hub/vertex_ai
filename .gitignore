@@ -1,0 +1,10 @@
+node_modules/
+out/
+request.json
+job-id.txt
+result.json
+gha-creds-*.json
+.env
+*.mp4
+*.png
+*.jpg

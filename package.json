@@ -1,0 +1,17 @@
+{
+  "name": "vertex-media-factory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "validate": "node src/cli.mjs --validate-only --file examples/video.json"
+  },
+  "dependencies": {
+    "google-auth-library": "^10.4.0",
+    "cloudinary": "^2.8.0"
+  }
+}
