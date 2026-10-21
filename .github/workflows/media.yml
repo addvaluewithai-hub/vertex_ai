@@ -50,6 +50,14 @@ jobs:
       - name: Validate and prepare (no charge)
         id: prepare
         run: node src/prepare.mjs
+      - name: Install FFmpeg for video-edit jobs
+        if: steps.prepare.outputs.kind == 'video_edit' && steps.prepare.outputs.mode == 'produce'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -version | head -n 1
       - name: Authenticate to Google Cloud
         if: steps.prepare.outputs.mode == 'produce'
         uses: google-github-actions/auth@v3
