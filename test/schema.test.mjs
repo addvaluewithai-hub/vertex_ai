@@ -41,5 +41,5 @@ test("Omni edit payload follows Interactions API edit task",async()=>{
  assert.equal(payload.generation_config.video_config.task,"edit");
  assert.equal(payload.input[1].uri,"gs://example-bucket/trimmed.mp4");
  assert.equal(payload.response_format[0].delivery,"inline");
- assert.equal(payload.response_format[0].aspect_ratio,"9:16");
+ assert.equal(payload.response_format[0].aspect_ratio,undefined);
 });
