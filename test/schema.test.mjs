@@ -30,3 +30,16 @@ test("video_edit safety and quota guard",()=>{
  assert.throws(()=>validateRequest({...base,source_video_url:"https://res.cloudinary.com/a/video/upload/a.mp4",trim_duration_seconds:10}));
  assert.throws(()=>validateRequest({...base,source_video_url:"https://res.cloudinary.com/a/video/upload/a.mp4",source_video_uri:"gs://valid-bucket/x.mp4"}));
 });
+
+test("Omni edit payload follows Interactions API edit task",async()=>{
+ const {buildEditRequest}=await import("../src/edit-video.mjs");
+ const request=validateRequest({schemaVersion:1,kind:"video_edit",
+  prompt:"Move speaking man into a cafe with a blazer",
+  source_video_uri:"gs://example-bucket/trimmed.mp4",aspect_ratio:"9:16",
+  resolution:"360p",preserve_audio:false});
+ const payload=buildEditRequest(request,{type:"video",uri:request.source_video_uri,mime_type:"video/mp4"});
+ assert.equal(payload.generation_config.video_config.task,"edit");
+ assert.equal(payload.input[1].uri,"gs://example-bucket/trimmed.mp4");
+ assert.equal(payload.response_format[0].delivery,"inline");
+ assert.equal(payload.response_format[0].aspect_ratio,"9:16");
+});
