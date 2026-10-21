@@ -20,7 +20,7 @@ export function buildEditRequest(req,content) {
   return {
     model:req.model,
     input:[{type:"text",text:req.prompt},{...content}],
-    response_format:[{type:"video",delivery:"inline",resolution:req.resolution,aspect_ratio:req.aspect_ratio}],
+    response_format:[{type:"video",delivery:"inline",resolution:req.resolution}],
     generation_config:{video_config:{task:"edit"}}
   };
 }
