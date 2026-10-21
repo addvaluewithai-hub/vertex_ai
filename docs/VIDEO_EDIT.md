@@ -47,3 +47,9 @@ Set mode=produce to allow a charged generation request, with owner approval. Sub
 400 from model: request schema / input video or unsupported setting (review error in Issue receipt). 403: service account permission or preview entitlement. 429: quota. 422 from Cloudinary: public source not reachable. Input clip must have real decodable frames; the runner rejects empty/oversized video before paid model call.
 
 Official edit documentation: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos
+
+## Verified live integration test (2026-10-21)
+
+An owner-issued `video_edit` job completed using `gemini-omni-1.1-flash-preview` on Google Cloud and uploaded its output MP4 to Cloudinary. [Run](https://github.com/addvaluewithai-hub/vertex_ai/actions/runs/39577949165) and [result receipt](https://github.com/addvaluewithai-hub/vertex_ai/issues/10). This tested the Cloudinary-source trimming path with `preserve_audio: false` using a short paper-airplane video. The speaker-video/audio-remux use case is not yet live-tested.
+
+The editing API rejects `aspect_ratio` inside `response_format`; the factory validates the requested orientation but does not send this field for editing. The actual edited orientation generally follows the source and should be checked manually. GitHub Actions now installs FFmpeg automatically for paid edit jobs, and only after request validation.
