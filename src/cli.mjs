@@ -2,6 +2,7 @@
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
 import {validateRequest,validateJobId,imageParts,videoPart} from "./schema.mjs";
+import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
 function fail(m){throw Error(m);}
 async function post(url,payload){
@@ -31,6 +32,18 @@ async function generate(req,project){
     return {bytes:outputBytes(p.data),mime:p.mimeType,usage:r.usageMetadata?.totalTokenCount??null};
   }
   const url="https://aiplatform.googleapis.com/v1beta1/projects/"+project+"/locations/global/interactions";
+  if(req.kind==="video_edit"){
+    const prepared=await prepareEditVideoInput(req);
+    try {
+      const r=await post(url,buildEditRequest(req,prepared.content));
+      if(r.status && r.status!=="completed") fail("Edit status "+r.status+" (interaction "+(r.id??"unknown")+")");
+      const part=videoPart(r);
+      if(!part) fail("Omni returned no inline edited video");
+      let bytes=outputBytes(part.data);
+      if(req.preserve_audio && prepared.trimmedPath) bytes=await remuxOriginalAudio(bytes,prepared.trimmedPath);
+      return {bytes,mime:part.mime_type??"video/mp4",usage:r.usage?.total_tokens??null,interaction_id:r.id??null};
+    }finally{await prepared.cleanup();}
+  }
   const input=[{type:"text",text:req.prompt}];
   if(req.reference_image_uri) input.push({type:"image",uri:req.reference_image_uri,mime_type:/\.jpe?g$/i.test(req.reference_image_uri)?"image/jpeg":"image/png"});
   const r=await post(url,{model:req.model,input,response_format:[{type:"video",delivery:"inline",aspect_ratio:req.aspect_ratio,resolution:req.resolution,duration:req.duration_seconds+"s"}],generation_config:{video_config:{task:req.reference_image_uri?"image_to_video":"text_to_video"}}});
@@ -77,7 +90,7 @@ async function main(){
     await mkdir(outDir,{recursive:true});
     const name=jobId+"."+ext,local=join(outDir,name);
     await writeFile(local,item.bytes);
-    const url=await publish(local,req.kind,jobId);
+    const url=await publish(local,req.kind==="image"?"image":"video",jobId);
     if(!url) fail("Cloudinary upload failed; model request may already have incurred usage charges.");
     result={...result,status:"completed",completed_at:new Date().toISOString(),
       usage_tokens:item.usage,interaction_id:item.interaction_id??null,

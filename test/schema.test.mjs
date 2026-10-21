@@ -14,3 +14,19 @@ test("decoders",()=>{
   assert.equal(imageParts({candidates:[{content:{parts:[{inlineData:{mimeType:"image/png",data:"QQ=="}}]}}]}).length,1);
   assert.equal(videoPart({steps:[{type:"model_output",content:[{type:"video",data:"QQ=="}]}]}).data,"QQ==");
 });
+
+test("video_edit accepts Cloudinary source, 8 sec trim and preserved speech",()=>{
+ const req=validateRequest({schemaVersion:1,kind:"video_edit",prompt:"Put the speaker in a cafe",
+  source_video_url:"https://res.cloudinary.com/lskr7x7h/video/upload/v1792351589/vertex-media-factory/issue-6-39158746305.mp4",
+  trim_duration_seconds:8,aspect_ratio:"9:16"});
+ assert.equal(req.trim_duration_seconds,8);
+ assert.equal(req.preserve_audio,true);
+ assert.equal(req.model,"gemini-omni-1.1-flash-preview");
+});
+test("video_edit safety and quota guard",()=>{
+ const base={schemaVersion:1,kind:"video_edit",prompt:"Put the speaker in a cafe"};
+ assert.throws(()=>validateRequest({...base,source_video_url:"https://example.com/file.mp4"}));
+ assert.throws(()=>validateRequest({...base,source_video_url:"https://res.cloudinary.com.evil.test/a/video/upload/a.mp4"}));
+ assert.throws(()=>validateRequest({...base,source_video_url:"https://res.cloudinary.com/a/video/upload/a.mp4",trim_duration_seconds:10}));
+ assert.throws(()=>validateRequest({...base,source_video_url:"https://res.cloudinary.com/a/video/upload/a.mp4",source_video_uri:"gs://valid-bucket/x.mp4"}));
+});
