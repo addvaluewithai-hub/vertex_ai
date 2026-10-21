@@ -75,3 +75,7 @@ Official references:
 - https://github.com/google-github-actions/auth
 - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text
 - https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation
+
+## Video editing support
+
+No extra secrets are needed for public Cloudinary input URLs. The GitHub Actions runner downloads the video, trims with FFmpeg and sends inline data to Gemini Omni via Vertex AI. Videos already hosted on GCS can be sent using source_video_uri (service-account GCS read permission required), but those must already be clipped to 10 seconds maximum. Optional Actions variable MAX_EDIT_SECONDS sets the maximum requested source length (default 8). See docs/VIDEO_EDIT.md.

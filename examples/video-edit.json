@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "video_edit",
+  "mode": "dry-run",
+  "source_video_url": "https://res.cloudinary.com/YOUR_CLOUD_NAME/video/upload/v123456/your_source.mp4",
+  "trim_start_seconds": 0,
+  "trim_duration_seconds": 8,
+  "preserve_audio": true,
+  "prompt": "Preserve the same speaking man and his voice; place him in a modern cafe, change T-shirt to a collared shirt and lightweight blazer, zoom out to a medium shot, keep 9:16 vertical.",
+  "aspect_ratio": "9:16",
+  "resolution": "360p",
+  "model": "gemini-omni-1.1-flash-preview"
+}

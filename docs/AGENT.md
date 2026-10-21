@@ -82,3 +82,7 @@ GitHub artifact retention is 7 days where artifact uploads are possible. Missing
 ## Security & billing
 
 Never include Google credentials, Cloudinary secrets or GitHub tokens in an Issue, payload, or log. Use GitHub Actions Variables for non-secret GCP WIF identifiers and Actions Secret for CLOUDINARY_URL. Do not dispatch bulk paid work without owner approval. Preview model quota and $300 trial credit eligibility must be checked; do not assume all preview SKUs are covered. Read docs/SETUP.md.
+
+## Existing-video editing
+
+Set kind to video_edit and pass exactly one of source_video_url (public Cloudinary MP4 URL) or source_video_uri (already-trimmed GCS MP4). Use trim_start_seconds=0, trim_duration_seconds=8, preserve_audio=true, aspect_ratio=9:16, and resolution=360p for the speaker-in-a-cafe sample. The factory will trim public Cloudinary sources before calling Omni video task=edit. MAX_EDIT_SECONDS defaults to 8 and is separate from the 5-second new-video generation cap. Dry-run validates only. See [VIDEO_EDIT.md](VIDEO_EDIT.md) for the full payload and constraints.

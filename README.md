@@ -40,3 +40,7 @@ Required **Actions Secret** for paid jobs: `CLOUDINARY_URL`, containing `cloudin
 The presence of $300 credits alone does **not** guarantee preview model access or eligibility of individual SKUs. Test first and inspect Google Cloud billing; a budget alert is not a hard spending limit.
 
 The factory is code-complete but **not yet cloud-tested** until those three variables and Google Cloud WIF permissions are configured. The CI suite validates request parsing without making paid calls.
+
+## Edit existing videos
+
+The new video_edit job accepts a public Cloudinary MP4 URL or an already-trimmed Google Cloud Storage URI. For Cloudinary inputs it can cut the requested 3-8s segment automatically, apply a text edit prompt with Gemini Omni Flash via Vertex AI, and optionally remux the original speech audio. See [video-edit guide](docs/VIDEO_EDIT.md). This feature is new and needs a first paid edit to confirm the model's behavior.
