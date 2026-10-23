@@ -37,7 +37,7 @@ Valid still models: gemini-3.1-flash-lite-image (default) and gemini-3.1-flash-i
 }
 ~~~
 
-Video uses the Google Cloud Agent Platform Interactions API, not the Gemini Developer API. Video length must be an integer between 3 and 10 seconds and <= MAX_VIDEO_SECONDS (Actions Variable default 5). Video output must be <= MAX_VIDEO_RESOLUTION (default 360p; valid 360p/720p/1080p/4k). Aspect ratio: 16:9 or 9:16. Optional reference_image_uri = gs://bucket/path/to/startframe.png or .jpg enables image-to-video. The Google Cloud service account must read that GCS object.
+Video uses the Google Cloud Agent Platform Interactions API, not the Gemini Developer API. Video length must be an integer between 3 and 10 seconds and <= MAX_VIDEO_SECONDS (Actions Variable default 5). Video output must be <= MAX_VIDEO_RESOLUTION (CLI default 360p; workflow pinned to the owner-approved 720p cap on 2026-10-23). Aspect ratio: 16:9 or 9:16. Optional reference_image_uri accepts a readable gs://bucket/path/to/startframe.png or .jpg, or a public https://res.cloudinary.com/CLOUD/image/upload/...png, .jpg or .webp URL. Cloudinary references are downloaded with a 10 MiB limit and no redirects, checked for their actual image signature, and sent as inline original bytes. No GCS bucket or GCS permissions are needed for Cloudinary input. Higher resolutions still require separate approval and a policy change.
 
 ## Trigger through GitHub repository_dispatch
 
@@ -86,3 +86,4 @@ Never include Google credentials, Cloudinary secrets or GitHub tokens in an Issu
 ## Existing-video editing
 
 Set kind to video_edit and pass exactly one of source_video_url (public Cloudinary MP4 URL) or source_video_uri (already-trimmed GCS MP4). Use trim_start_seconds=0, trim_duration_seconds=8, preserve_audio=true, aspect_ratio=9:16, and resolution=360p for the speaker-in-a-cafe sample. The factory will trim public Cloudinary sources before calling Omni video task=edit. MAX_EDIT_SECONDS defaults to 8 and is separate from the 5-second new-video generation cap. Dry-run validates only. See [VIDEO_EDIT.md](VIDEO_EDIT.md) for the full payload and constraints.
+

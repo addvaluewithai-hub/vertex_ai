@@ -34,7 +34,8 @@ jobs:
     env:
       GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
       MAX_VIDEO_SECONDS: ${{ vars.MAX_VIDEO_SECONDS || '5' }}
-      MAX_VIDEO_RESOLUTION: ${{ vars.MAX_VIDEO_RESOLUTION || '360p' }}
+      # Owner approved 720p for the Otti pilot on 2026-10-23. Higher resolutions remain blocked.
+      MAX_VIDEO_RESOLUTION: '720p'
       MAX_EDIT_SECONDS: ${{ vars.MAX_EDIT_SECONDS || '8' }}
     steps:
       - uses: actions/checkout@v4
@@ -105,3 +106,4 @@ jobs:
             out/
           if-no-files-found: ignore
           retention-days: 7
+

@@ -3,6 +3,7 @@ import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
 import {validateRequest,validateJobId,imageParts,videoPart} from "./schema.mjs";
 import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
+import {prepareReferenceImage,buildVideoRequest} from "./reference-image.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
 function fail(m){throw Error(m);}
 async function post(url,payload){
@@ -44,9 +45,8 @@ async function generate(req,project){
       return {bytes,mime:part.mime_type??"video/mp4",usage:r.usage?.total_tokens??null,interaction_id:r.id??null};
     }finally{await prepared.cleanup();}
   }
-  const input=[{type:"text",text:req.prompt}];
-  if(req.reference_image_uri) input.push({type:"image",uri:req.reference_image_uri,mime_type:/\.jpe?g$/i.test(req.reference_image_uri)?"image/jpeg":"image/png"});
-  const r=await post(url,{model:req.model,input,response_format:[{type:"video",delivery:"inline",aspect_ratio:req.aspect_ratio,resolution:req.resolution,duration:req.duration_seconds+"s"}],generation_config:{video_config:{task:req.reference_image_uri?"image_to_video":"text_to_video"}}});
+  const reference=req.reference_image_uri?await prepareReferenceImage(req.reference_image_uri):null;
+  const r=await post(url,buildVideoRequest(req,reference));
   if(r.status && r.status!=="completed") fail("Video status "+r.status+" (interaction "+(r.id??"unknown")+")");
   const p=videoPart(r);
   if(!p) fail("Omni returned no inline video");
@@ -105,3 +105,4 @@ async function main(){
   if(result.status==="failed") console.error(result.error);
 }
 main().catch(e=>{console.error("Factory error: "+e.message);process.exitCode=1;});
+

@@ -3,11 +3,11 @@
 A private, asynchronous image + video generation factory built for autonomous agents, following [Gemini TTS Factory](https://github.com/addvaluewithai-hub/gemini-tts).
 
 - **Image:** Gemini 3.1 Flash-Lite Image (default) or Gemini 3.1 Flash Image, on Google Cloud Agent Platform.
-- **Video:** Gemini Omni 1.1 Flash Preview via the Google Cloud Interactions API (text-to-video; optional GCS reference image).
+- **Video:** Gemini Omni 1.1 Flash Preview via the Google Cloud Interactions API (text-to-video; optional GCS or public Cloudinary reference image).
 - **Triggers:** `repository_dispatch` (event `media.generate`), manual `workflow_dispatch`, or owner-created JSON GitHub Issue.
 - **Auth:** GitHub OIDC → Google Cloud Workload Identity Federation → service account. No Google API keys or service account key JSON.
 - **Outputs:** `result.json` (Actions summary and owner-Issue receipt) plus a Cloudinary media URL. GitHub artifact upload is best-effort while the account's artifact quota is exhausted.
-- **Cost guard:** Explicit `mode: "produce"` to make a billable request. `mode: "dry-run"` validates without cloud credentials or spend. One output per job; videos default to 3s/360p.
+- **Cost guard:** Explicit `mode: "produce"` to make a billable request. `mode: "dry-run"` validates without cloud credentials or spend. One output per job; videos default to 3s/360p. The Actions workflow has an owner-approved 720p maximum for the Otti pilot (2026-10-23); the standalone CLI keeps its 360p default maximum.
 
 Read [docs/AGENT.md](docs/AGENT.md) if you are an agent, and [docs/SETUP.md](docs/SETUP.md) to connect your $300 Google Cloud trial project.
 
@@ -44,3 +44,4 @@ The factory is code-complete but **not yet cloud-tested** until those three vari
 ## Edit existing videos
 
 The new video_edit job accepts a public Cloudinary MP4 URL or an already-trimmed Google Cloud Storage URI. For Cloudinary inputs it can cut the requested 3-8s segment automatically, apply a text edit prompt with Gemini Omni Flash via Vertex AI, and optionally remux the original speech audio. See [video-edit guide](docs/VIDEO_EDIT.md). This feature is new and needs a first paid edit to confirm the model's behavior.
+

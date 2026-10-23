@@ -1,5 +1,15 @@
 const IMAGES = new Set(["gemini-3.1-flash-lite-image", "gemini-3.1-flash-image"]);
 const VIDEOS = new Set(["gemini-omni-1.1-flash-preview"]);
+export function validatedReferenceImageUri(value) {
+  if (typeof value !== "string" || value.length > 1500) fail("Invalid reference_image_uri");
+  if (/^gs:\/\/[a-z0-9][a-z0-9._-]{2,220}\/[^\s?#]{1,800}$/.test(value)) return value;
+  let u;
+  try { u=new URL(value); } catch { fail("Malformed reference_image_uri"); }
+  if (u.protocol !== "https:" || u.hostname !== "res.cloudinary.com" || u.port || u.username || u.password || u.search || u.hash ||
+      !/^\/[a-zA-Z0-9_-]+\/image\/upload\/.+\.(png|jpe?g|webp)$/i.test(u.pathname))
+    fail("reference_image_uri must be gs://bucket/object or a public Cloudinary image HTTPS URL");
+  return u.href;
+}
 export function validatedCloudinaryVideoUrl(value) {
   if (typeof value !== "string" || value.length > 1500) fail("source_video_url must be a Cloudinary HTTPS URL");
   let u;
@@ -64,8 +74,7 @@ export function validateRequest(x, policy={}) {
   if(!Number.isInteger(duration_seconds) || duration_seconds<3 || duration_seconds>10) fail("Video duration must be integer 3-10");
   const maxSeconds=Number(policy.maxSeconds??process.env.MAX_VIDEO_SECONDS??5);
   if(!Number.isInteger(maxSeconds) || maxSeconds<3 || maxSeconds>10 || duration_seconds>maxSeconds) fail("Exceeded MAX_VIDEO_SECONDS policy");
-  if(x.reference_image_uri!==undefined && (typeof x.reference_image_uri!=="string" || !/^gs:\/\/[a-z0-9][a-z0-9._-]{2,220}\/[^\s?#]{1,800}$/.test(x.reference_image_uri)))
-    fail("reference_image_uri must be gs://bucket/object");
+  if(x.reference_image_uri!==undefined) validatedReferenceImageUri(x.reference_image_uri);
   return {...common,duration_seconds,resolution,...(x.reference_image_uri?{reference_image_uri:x.reference_image_uri}:{})};
 }
 export function imageParts(r) {
@@ -75,3 +84,4 @@ export function videoPart(r) {
   const parts=(r?.steps??[]).filter(s=>s.type==="model_output").flatMap(s=>s.content??[]);
   return parts.find(p=>p?.type==="video" && typeof p.data==="string")??(r?.output_video?.data?r.output_video:null);
 }
+

@@ -53,7 +53,7 @@ Create exactly:
 
 Optional cost-guard Variables:
 - MAX_VIDEO_SECONDS = 5 by default; 3 through 10 supported.
-- MAX_VIDEO_RESOLUTION = 360p by default; raise to 720p, 1080p or 4k only after approving higher spend.
+- MAX_VIDEO_RESOLUTION defaults to 360p in the standalone CLI. The Actions workflow now pins this environment variable to the owner-approved 720p cap (2026-10-23), rather than reading the Actions Variable. Higher resolutions require separate approval and a workflow policy change.
 
 **Required for production** Actions **Secret**: CLOUDINARY_URL in the format cloudinary://API_KEY:API_SECRET@CLOUD_NAME, matching your Gemini TTS factory. GitHub artifact uploads currently fail because your account has exhausted artifact storage. The factory therefore requires durable Cloudinary delivery before making any paid Google API request. Do not put credentials in Variables or commit them. Copying a Cloudinary secret between repos must be done manually or through permitted secure admin tooling.
 
@@ -65,7 +65,7 @@ Then change just mode to produce for ONE 1K image. After it succeeds, use exampl
 
 If 403, inspect WIF binding, main branch claim, API access and preview entitlement. If 404, inspect model ID and project. If 429, it is often quota/capacity. The current Omni 1.1 model is a preview; preview access may not be included in ordinary trial entitlements.
 
-An optional reference_image_uri pointing to gs:// requires that the dedicated service account can read the specific Cloud Storage bucket objects (grant roles/storage.objectViewer on only that bucket if needed).
+An optional reference_image_uri pointing to gs:// requires that the dedicated service account can read the specific Cloud Storage bucket objects (grant roles/storage.objectViewer on only that bucket if needed). Alternatively, pass a public Cloudinary image URL in reference_image_uri; the runner sends its original bytes inline and needs no GCS access.
 
 ## Billing safeguards
 
@@ -79,3 +79,4 @@ Official references:
 ## Video editing support
 
 No extra secrets are needed for public Cloudinary input URLs. The GitHub Actions runner downloads the video, trims with FFmpeg and sends inline data to Gemini Omni via Vertex AI. Videos already hosted on GCS can be sent using source_video_uri (service-account GCS read permission required), but those must already be clipped to 10 seconds maximum. Optional Actions variable MAX_EDIT_SECONDS sets the maximum requested source length (default 8). See docs/VIDEO_EDIT.md.
+
