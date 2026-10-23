@@ -4,11 +4,17 @@ import {validateRequest,validateJobId,imageParts,videoPart} from "../src/schema.
 test("dry-run default",()=>assert.equal(validateRequest({schemaVersion:1,kind:"image",prompt:"Colorful sunset"}).mode,"dry-run"));
 test("cheap video",()=>assert.equal(validateRequest({schemaVersion:1,mode:"produce",kind:"video",prompt:"A flying kite",duration_seconds:3,resolution:"360p"}).resolution,"360p"));
 test("guards",()=>{
-  assert.throws(()=>validateRequest({schemaVersion:1,kind:"video",prompt:"A flying kite",duration_seconds:10}));
+  assert.throws(()=>validateRequest({schemaVersion:1,kind:"video",prompt:"A flying kite",duration_seconds:10},{maxSeconds:5}));
   assert.throws(()=>validateRequest({schemaVersion:1,kind:"video",prompt:"A flying kite",resolution:"4k"}));
   assert.throws(()=>validateRequest({schemaVersion:1,kind:"image",prompt:"A flying kite",model:"gemini-omni-1.1-flash-preview"}));
   assert.throws(()=>validateRequest({schemaVersion:1,kind:"image",prompt:"A flying kite",api_key:"secret"}));
   assert.throws(()=>validateJobId("../../oops"));
+});
+test("video duration obeys the configured maximum, including 10 seconds",()=>{
+  const base={schemaVersion:1,kind:"video",prompt:"A flying kite",resolution:"360p"};
+  assert.equal(validateRequest({...base,duration_seconds:10},{maxSeconds:10}).duration_seconds,10);
+  assert.equal(validateRequest({...base,duration_seconds:5},{maxSeconds:10}).duration_seconds,5);
+  assert.throws(()=>validateRequest({...base,duration_seconds:11},{maxSeconds:10}));
 });
 test("decoders",()=>{
   assert.equal(imageParts({candidates:[{content:{parts:[{inlineData:{mimeType:"image/png",data:"QQ=="}}]}}]}).length,1);
@@ -43,3 +49,4 @@ test("Omni edit payload follows Interactions API edit task",async()=>{
  assert.equal(payload.response_format[0].delivery,"inline");
  assert.equal(payload.response_format[0].aspect_ratio,undefined);
 });
+
