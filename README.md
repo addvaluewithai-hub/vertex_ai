@@ -45,3 +45,6 @@ The factory is code-complete but **not yet cloud-tested** until those three vari
 
 The new video_edit job accepts a public Cloudinary MP4 URL or an already-trimmed Google Cloud Storage URI. For Cloudinary inputs it can cut the requested 3-8s segment automatically, apply a text edit prompt with Gemini Omni Flash via Vertex AI, and optionally remux the original speech audio. See [video-edit guide](docs/VIDEO_EDIT.md). This feature is new and needs a first paid edit to confirm the model's behavior.
 
+## Voice factory
+
+`tts/`: Gemini TTS on Vertex AI with a Speech-to-Text listen-back, no API key. See docs/TTS.md.

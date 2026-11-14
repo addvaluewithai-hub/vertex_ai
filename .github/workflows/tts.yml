@@ -1,0 +1,68 @@
+name: Vertex AI Voice Factory
+# Gemini TTS on Vertex AI with Speech-to-Text listen-back, signed in to Google Cloud through Workload Identity
+# Federation (no API key). Same request format as addvaluewithai-hub/gemini-tts; see docs/TTS.md.
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: "Stable job ID (the Cloudinary name: gemini-tts/<job id>.wav)"
+        required: true
+        type: string
+      request_json:
+        description: "TTS request JSON (docs/TTS.md)"
+        required: true
+        type: string
+  repository_dispatch:
+    types: [tts.generate]
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: tts-${{ inputs.job_id || github.event.client_payload.job_id || github.run_id }}
+  cancel-in-progress: false
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+      TTS_REGION: global
+      SPEECH_REGION: eu
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Run offline tests
+        run: npm test
+      - name: Write and validate the request (no charge)
+        env:
+          REQUEST_JSON: ${{ inputs.request_json || toJSON(github.event.client_payload.request) }}
+          JOB_ID: ${{ inputs.job_id || github.event.client_payload.job_id }}
+        run: |
+          printf '%s' "$REQUEST_JSON" > request.json
+          node tts/cli.mjs --validate-only --file request.json
+          echo "JOB_ID=$(printf '%s' "$JOB_ID" | tr -c 'A-Za-z0-9._-' '-' | cut -c1-120)" >> "$GITHUB_ENV"
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ vars.GCP_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+      - name: Speak, listen back, deliver
+        env:
+          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+        run: node tts/cli.mjs --file request.json --job-id "$JOB_ID" --result result.json --output-dir out
+      - name: Job summary
+        if: always()
+        run: |
+          if [ -f result.json ]; then
+            echo '## Voice factory result' >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+            node -e "const r=require('./result.json');delete r.metadata;console.log(JSON.stringify(r,null,2))" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          fi
