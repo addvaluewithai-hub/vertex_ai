@@ -1,0 +1,24 @@
+{
+ "turns": [
+  {
+   "style": "A small alien field agent reading his report on planet Earth aloud to his commanders back home, about something he has observed among humans. He calls them sir now and then. He explains what he found clearly and simply, a little amused. Quick, dry, deadpan bureaucrat. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Higher-pitched, light and bright voice, slightly nasal, never deep or gravelly. American English. He lets a joke land flat and never laughs at it. Closing call to action of a short teaser for the full report, now turning to the human viewers directly: quick, sly, a little conspiratorial, warm and inviting, never pushy.",
+   "text": "This problem went unsolved for years... until an anonymous stranger solved it. The whole story is on the Earth Report channel. <short pause> Subscribe to the channel and turn on the bell, so my secret reports on your planet reach you first."
+  }
+ ],
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "en-US"
+  ],
+  "write_vtt": true
+ },
+ "metadata": {
+  "channel": "techforbadguys",
+  "title": "Shorts CTA (English) copy",
+  "language": "en-US"
+ }
+}
