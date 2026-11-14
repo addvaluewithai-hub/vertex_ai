@@ -1,0 +1,26 @@
+{
+  "turns": [
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Solving the riddle from the opening with one everyday comparison. Clear and pleased with himself.",
+      "text": "بس الشحنة وهي واقفة مابتشغّلش حاجة. اللي بيشغّل: شحنة ماشية. وده اسمه التيار. السلك النحاس مليان إلكترونات سايبة. وعلشان تمشي محتاجة حاجتين: حد يزقّها، زي البطارية. وطريق مقفول على بعضه يرجّعها لمكان ما بدأت. بيسمّوه دايرة. تقفل المفتاح.. الدايرة تكمل، الإلكترونات تتحرك، واللمبة تنوّر. وهنا اللغز اللي قلته في الأول. الإلكترون نفسه بيزحف: أقل من ملّي في الثانية. الحلزون يسبقه. بس الزقّة نفسها بتلفّ الدايرة بسرعة قريبة من سرعة الضوء. ليه؟ لأن السلك مليان أصلاً. زي خرطوم مليان مية: تفتح الحنفية من هنا.. تطلع مية من الناحية التانية فوراً. مش نفس المية اللي دخلت. دي اللي كانت واقفة في الآخر. وتفتح المفتاح.. الدايرة تتقطع، وكل حاجة تقف. في السلك كله، مرة واحدة. يعني زرار النور عندهم مابيبعتش كهربا. <short pause> هو كوبري متحرك. يا مقفول، يا مفتوح. ولو الإلكترونات لقت طريق مختصر من غير لمبة؟ تجري فيه كلها مرة واحدة، والسلك يسخن ويولّع. بيسمّوها قفلة. وعلشان كده كل بيت عندهم فيه قاطع بيفصل لوحده لما التيار يزيد عن حدّه. والمواد عندهم صنفين. معادن زي النحاس، إلكتروناتها سايبة فبتوصّل. وحاجات زي البلاستيك والكاوتش، إلكتروناتها ماسكة في مكانها فبتعزل. <short pause> علشان كده كل سلك عندهم لابس جاكتة."
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "ar-EG"
+    ],
+    "write_vtt": true
+  },
+  "metadata": {
+    "channel": "techforbadguys",
+    "title": "تقرير الأرض: الكهربا 1 (section 4 again: the take dropped a phrase)",
+    "language": "ar-EG",
+    "recorded_for": "2026-11-14",
+    "script": "episodes/techforbadguys/explain-electricity-01-ar/script.md"
+  }
+}
