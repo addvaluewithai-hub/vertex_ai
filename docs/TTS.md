@@ -22,7 +22,8 @@ as it is.
 
 ## Running it
 
-Actions → **Vertex AI Voice Factory** → Run workflow, with `job_id` and `request_json`; or a `repository_dispatch` of
+Actions → **Vertex AI Voice Factory** → Run workflow, with `job_id` and `request_json`, or, for a long request,
+`request_path` (a file under `requests/`) and `request_ref` (the branch that holds it); or a `repository_dispatch` of
 type `tts.generate` with `client_payload: { job_id, request }`. Needs the repository Variables `GCP_PROJECT_ID`,
 `GCP_SERVICE_ACCOUNT`, `GCP_WIF_PROVIDER` (already set for the media factory) and the Secret `CLOUDINARY_URL`.
 The service account needs `roles/aiplatform.user` and `roles/speech.client`, and the project the Speech-to-Text API:

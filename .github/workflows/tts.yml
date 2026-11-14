@@ -9,8 +9,16 @@ on:
         required: true
         type: string
       request_json:
-        description: "TTS request JSON (docs/TTS.md)"
-        required: true
+        description: "TTS request JSON (docs/TTS.md); or leave empty and give request_path"
+        required: false
+        type: string
+      request_path:
+        description: "Instead of request_json: a request file under requests/ in this repository, read from request_ref"
+        required: false
+        type: string
+      request_ref:
+        description: "Branch or commit that holds request_path (default: main)"
+        required: false
         type: string
   repository_dispatch:
     types: [tts.generate]
@@ -42,9 +50,18 @@ jobs:
       - name: Write and validate the request (no charge)
         env:
           REQUEST_JSON: ${{ inputs.request_json || toJSON(github.event.client_payload.request) }}
+          REQUEST_PATH: ${{ inputs.request_path }}
+          REQUEST_REF: ${{ inputs.request_ref || 'main' }}
           JOB_ID: ${{ inputs.job_id || github.event.client_payload.job_id }}
         run: |
-          printf '%s' "$REQUEST_JSON" > request.json
+          if [ -n "$REQUEST_PATH" ]; then
+            case "$REQUEST_PATH" in requests/*.json) ;; *) echo "request_path must be requests/<name>.json"; exit 1;; esac
+            case "$REQUEST_PATH" in *..*) echo "request_path must not contain .."; exit 1;; esac
+            git fetch --depth=1 origin "$REQUEST_REF"
+            git show "FETCH_HEAD:$REQUEST_PATH" > request.json
+          else
+            printf '%s' "$REQUEST_JSON" > request.json
+          fi
           node tts/cli.mjs --validate-only --file request.json
           echo "JOB_ID=$(printf '%s' "$JOB_ID" | tr -c 'A-Za-z0-9._-' '-' | cut -c1-120)" >> "$GITHUB_ENV"
       - name: Authenticate to Google Cloud
