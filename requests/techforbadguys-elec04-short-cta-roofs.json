@@ -1,0 +1,24 @@
+{
+ "turns": [
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Closing call to action of a short teaser for the full report, now turning to the human viewers directly: quick, sly, a little conspiratorial, warm and inviting, never pushy.",
+   "text": "وفيه 730 مليون إنسان لسه من غير لمبة.. التقرير كامل على قناة تقرير الأرض. <short pause> اشترك في القناة وفعّل الجرس.. علشان تقاريري السرية عن كوكبكم توصلك أول بأول."
+  }
+ ],
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "metadata": {
+  "channel": "techforbadguys",
+  "title": "Electricity 4/4 Shorts CTA roofs",
+  "language": "ar-EG"
+ }
+}
