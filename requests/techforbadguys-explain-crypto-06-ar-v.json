@@ -1,0 +1,64 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "metadata": {
+  "channel": "techforbadguys",
+  "title": "تقرير الأرض: العملات المشفرة 6",
+  "language": "ar-EG",
+  "recorded_for": "2026-12-04",
+  "script": "episodes/techforbadguys/explain-crypto-06-world/script.md",
+  "job_id": "techforbadguys-explain-crypto-06-ar-v",
+  "note": "Vertex AI recording of the six-part file part 6, same model, voice (Puck) and direction as 01-04 -ar-v; listen-back on. Approved by the owner 2026-11-15."
+ },
+ "turns": [
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Opening of the last report in the file. He states the subject at once, crisp and quick, then a hook.",
+   "text": "يا فندم، التقرير السادس والأخير في ملف العملات المشفرة. موضوع النهارده: الهوجة.. والقانون. في التقرير اللي فات عرفنا إن أي حد يقدر يعمل عملة في دقايق. والبشر عملوا عشرين مليون. فيهم اللي عليه صورة، واللي عليه كلب، واللي عليه اسم رئيس دولة. هقول لكم مين فيهم عاش، ومين مات، وحكوماتهم عملت إيه. وفي الآخر: حكمي النهائي على الملف كله."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Barely containing his amusement.",
+   "text": "سنة ألفين واحد وعشرين، البشر اكتشفوا إن الدفتر ممكن يسجّل ملكية أي حاجة. فسجّلوا عليه صور. صورة رقمية اتباعت بتسعة وستين مليون دولار. وأول تغريدة في تاريخ موقع Twitter اتباعت بحوالي تلاتة مليون. صاحبها عرضها للبيع بعد سنة. أعلى عرض جاله: ميتين وتمانين دولار. ومشاهير اشتروا صور قرود بمئات الآلاف من الدولارات. ليه؟ نفس السبب القديم: حد تاني هيدفع أكتر. واللي اشترى ماكانش بيشتري الصورة. كان بيشتري سطر في الدفتر بيقول إنها بتاعته. الصورة نفسها.. أي حد ينسخها. فاكرين مشكلة النسخ من التقرير الأول؟ لسه موجودة. وبعد سنتين، دراسة لقت إن خمسة وتسعين في المية من المجموعات دي.. بقت ماتساويش حاجة. بس الفكرة رجعت لابسة بدلة: أسهم وسندات متسجّلة على الدفتر. وده اللي البورصات الكبيرة شغالة عليه دلوقتي."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Deadpan zoology: describing absurd species.",
+   "text": "ونوصل لأغرب قفص في الحديقة. سنة ألفين وتلتاشر، اتنين مبرمجين عملوا عملة تريقة على الموضوع كله. عليها صورة كلب. سنة ألفين واحد وعشرين، النكتة وصلت قيمتها حوالي تسعين مليار دولار. ولسه بتساوي مليارات. وأغنى إنسان على الكوكب كان بيكتب عنها سطر على النت.. فالسعر يطلع. يكتب سطر تاني.. ينزل. واحد من اللي عملوها باع نصيبه بدري.. واشترى بيه عربية مستعملة. ده أكتر إنسان فاهم المشروع. وبعدها ظهرت مواقع تعمل عليها عملة في أقل من دقيقة، من غير ما تكتب سطر كود. حتى رئيس دولة عمل واحدة باسمه، قبل ما يستلم الحكم بتلات أيام. وصلت أربعة وسبعين دولار. وفي نوفمبر ألفين ستة وعشرين: دولار وشوية. يعني نزلت تمانية وتسعين في المية."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Deadpan zoology: describing absurd species.",
+   "text": "واللعب هنا نوعين. سحب السجادة: صاحب العملة يلمّ فلوس الناس ويختفي. والنفخ والتفريغ: يشتروا بدري، يعملوا دوشة، وأول ما إنت تدخل.. هم يطلعوا. وفي الحالتين، فيه حد واحد بيخسر دايماً: اللي جه متأخر. والحصيلة: عشرين مليون عملة اتعملت لحد آخر ألفين خمسة وعشرين. أكتر من نصهم.. مات. عمر العملة هنا أقصر من عمر علبة الزبادي. والبشر لسه بيدوّروا على اللي جاية."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A short briefing on how rulers reacted.",
+   "text": "وحكوماتهم مش متفقة. الصين منعت سنة ألفين واحد وعشرين. أوروبا سمحت بقانون منظِّم من آخر ألفين أربعة وعشرين. وأمريكا لسه بتتخانق مع نفسها. يعني القانون بيختلف من بلد لبلد. وكل واحد منهم لازم يراجع قانون بلده قبل ما يقرّب. والحاجة الوحيدة اللي كلهم اتفقوا عليها: الضرايب. وردّ الحكومات: عملة رقمية من البنك المركزي نفسه. أكتر من مية دولة بتدرسها. نفس التكنولوجيا تقريباً. بس عكس الفكرة بالظبط: مش دفتر من غير حارس. حارس.. ومعاه الدفتر كله."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. The final assessment of the whole file. Measured, fair, a little grand; he has earned this.",
+   "text": "وبعد ست تقارير، ده تقييمي النهائي للقيادة. نبدأ باللي اشتغل. واحد: الاختراع نفسه حقيقي. دفتر من غير صاحب، شغال سبعتاشر سنة، ومحدش قدر يغيّر فيه سطر قديم. اتنين: أول مرة في تاريخهم حاجة رقمية.. ماتتنسخش. تلاتة: الدولار الرقمي بيتستخدم بجد، خصوصاً في البلاد اللي بنوكها خذلت ناسها."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. The final assessment of the whole file. Measured, fair, a little grand; he has earned this.",
+   "text": "واللي مااشتغلش. واحد: محدش بيشتري بيها عيش. اتنين: المليار اللي من غير حساب بنك؟ أغلبهم لسه من غير حساب. اللي دخّل ناس كتير النظام كان التليفون.. مش البيتكوين. تلاتة: الوسيط اللي هربوا منه رجع تلات مرات: منصة، وصندوق، وشركة دولار رقمي. وأربعة: حوالين الاختراع اتبنى أكبر كازينو على الكوكب. وللإنصاف: التكنولوجيا نفسها بتتسرّب للنظام القديم. بنوك وبورصات بتجرّب تسجّل معاملاتها على دفاتر من النوع ده."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. The final assessment of the whole file. Measured, fair, a little grand; he has earned this.",
+   "text": "وفيه أسئلة لسه مفتوحة. أجهزة جديدة اسمها الكمبيوتر الكمّي، ممكن في يوم تكسر المفاتيح. وفي مارس ألفين ستة وعشرين، باحثين في Google قالوا إن ده محتاج أجهزة أصغر عشرين مرة من اللي كان متوقع. والمبرمجين بيجهّزوا أقفال جديدة. سباق.. ولسه ماخلصش. وسؤال تاني من التقرير التاني: لما جوايز التعدين تخلص.. مين هيدفع للحراس؟ الخلاصة يا فندم: الاختراع عبقري. والبشر استخدموه زي ما بيستخدموا كل حاجة عبقرية: ربعه علشان يحلّوا مشكلة.. وتلات أرباعه علشان يراهنوا. وهل أنصح القيادة تشتري؟ العميل Peek مش مخوّل يدّي نصايح استثمار. حتى لكوكبه."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A quick aside, like reading two entries from a field dictionary.",
+   "text": "آخر كلمتين من قاموس البشر. Altcoin: أي عملة غير بيتكوين. يعني العشرين مليون كلهم. و Airdrop: عملات بتتوزّع ببلاش علشان تجرّك. ومفيش حاجة ببلاش على الكوكب ده."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Closing the whole file: summary, one sincere warning, and a slightly proud sign-off.",
+   "text": "خلاصة الملف كله يا فندم. واحد: الفلوس دفتر، وبيتكوين وزّع الدفتر على الكل. اتنين: المفتاح هو الملكية، واللي يضيع مابيرجعش. تلاتة: السعر رهان، مش وعد. أربعة: الدفتر بقى بيشغّل برامج، وأنجح حاجة عليه كانت الدولار الرقمي. وخمسة: أغلب اللي جه بعد كده.. دوشة. وآخر تنبيه: كل اللي قلته شرح، مش نصيحة. واللي مايفهمش الحاجة.. مايحطّش فيها فلوسه. ملف العملات المشفرة اتقفل. ست تقارير. والكوكب ده عنده حاجات تانية كتير محتاجة شرح. ده كان تقرير الأرض. العميل Peek. انتهى الإرسال."
+  }
+ ]
+}
