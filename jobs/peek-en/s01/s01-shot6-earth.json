@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "produce",
+  "kind": "image",
+  "model": "gemini-3.1-flash-image",
+  "image_size": "1K",
+  "aspect_ratio": "9:16",
+  "reference_images": [
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010465/vertex-media-factory/peek-en-02-expressions-44319600694.png",
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010460/vertex-media-factory/peek-en-01-turnaround-44319585244.png"
+  ],
+  "prompt": "Vertical cinematic still in outer space. Planet Earth, like a glowing blue marble, fills the lower half of the frame. PEEK is the small pink alien in the attached images: keep his design exactly (pink pear-shaped head with full cheeks, two pink ball-tipped antennae through a black wide-brim hat with a pink band and a cream PRESS card, small blue heavy-lidded eyes, round nose bump, two big front teeth, beige belted trench coat, dark red tie, black shoes, about three heads tall). He floats calmly above it, small, with his notebook. Around Earth a red apple, a coffee cup and a small rock float, each pulled toward Earth's centre along a soft glowing thread of light, all threads pointing to the centre. Deep violet space, stars. Same 3D animated-feature look as the attached images: soft subsurface skin, fabric textures, cinematic lighting, shallow depth of field, anamorphic film look. No text, no letters, no captions anywhere."
+}

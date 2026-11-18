@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "produce",
+  "kind": "image",
+  "model": "gemini-3.1-flash-image",
+  "image_size": "1K",
+  "aspect_ratio": "9:16",
+  "reference_images": [
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010465/vertex-media-factory/peek-en-02-expressions-44319600694.png",
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010460/vertex-media-factory/peek-en-01-turnaround-44319585244.png"
+  ],
+  "prompt": "Vertical cinematic film still, golden dusk. A small-town backyard with a white picket fence and an apple tree. PEEK is the small pink alien in the attached images: keep his design exactly (pink pear-shaped head with full cheeks, two pink ball-tipped antennae through a black wide-brim hat with a pink band and a cream PRESS card, small blue heavy-lidded eyes, round nose bump, two big front teeth, beige belted trench coat, dark red tie, black shoes, about three heads tall). He sits on the grass under the tree, eyes rolled up, deadpan, watching a red apple frozen in mid-air just above his hat. Same 3D animated-feature look as the attached images: soft subsurface skin, fabric textures, cinematic lighting, shallow depth of field, anamorphic film look. No text, no letters, no captions anywhere."
+}

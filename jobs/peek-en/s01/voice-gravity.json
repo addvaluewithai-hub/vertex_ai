@@ -1,0 +1,24 @@
+{
+  "turns": [
+    {
+      "style": "A small alien spy undercover on Earth, filing a secret field report to his Commander about a strange human thing he has just discovered, in American English. Deadpan, dry, quietly sarcastic; he never laughs at his own jokes. Warm and smooth, middle register, never shrill, soft on the s. Brisk with no dead air, but he lets each punchline land.",
+      "text": "Relax. On my planet, you step off... you float. <long pause> Commander. Report number one. On this planet... everything falls. <short pause> Apples. Cups. Me. <short pause> They call it gravity. Every object pulls every other object. The bigger it is, the harder it pulls. And Earth is VERY big. <short pause> It even keeps their Moon on a leash. <short pause> They drop their phones every day... and act surprised every time. <long pause> Question, Commander: if everything falls... why doesn't the Moon fall on them?"
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "en-US"
+    ],
+    "write_vtt": true
+  },
+  "metadata": {
+    "channel": "peek-en",
+    "title": "Short 01 Gravity",
+    "language": "en-US"
+  }
+}

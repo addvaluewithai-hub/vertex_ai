@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "produce",
+  "kind": "image",
+  "model": "gemini-3.1-flash-image",
+  "image_size": "1K",
+  "aspect_ratio": "16:9",
+  "reference_images": [
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010465/vertex-media-factory/peek-en-02-expressions-44319600694.png",
+    "https://res.cloudinary.com/lskr7x7h/image/upload/v1795010470/vertex-media-factory/peek-en-04-disguise-44319628065.png"
+  ],
+  "prompt": "Character turnaround sheet of AGENT CROWE, a human government agent who hunts aliens, designed for the SAME stylized 3D animated feature as the pink alien in the attached images, so they can share a frame. Four views side by side on a plain light grey background: front, three-quarter, side profile, back. Cartoon proportions: tall and lanky, an oversized square jaw, a long narrow face, short grey-black hair, heavy stubble, tired eyes behind black aviator sunglasses, a coiled earpiece, a black suit slightly too short at the wrists, narrow black tie, and a clunky handheld alien detector with a stubby antenna and a green screen. Serious, weary, determined. Do NOT include the pink alien. Soft 3D animated-feature rendering like the attached images. No text, no labels."
+}
