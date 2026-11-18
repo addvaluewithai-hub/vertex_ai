@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "image",
+  "model": "gemini-3.1-flash-image",
+  "image_size": "1K",
+  "aspect_ratio": "1:1",
+  "reference_images": [
+    "refs/peek/peek-present.png",
+    "refs/peek/peek-shrug.png"
+  ],
+  "prompt": "Expression sheet of PEEK, a small alien spy: a 3 by 2 grid of head-and-shoulders portraits on a plain light grey background. 1 bored deadpan with heavy lids; 2 shocked, eyes wide, antennae straight up; 3 sneaky side glance; 4 panicked mid-run; 5 smug half smile; 6 confused, one antenna bent. Keep his design exactly as in the attached images: a bright pink pear-shaped head (small skull, very full cheeks), two thin pink antennae with ball tips coming up through the hat, small blue eyes set wide apart under heavy half-closed lids, a small round nose bump, two big white front teeth, a black wide-brim hat with a pink band and a small cream PRESS card in the band, a beige trench coat with a belt and a gold buckle, a dark red tie, black shoes, pink four-fingered hands. Short and stubby, about three heads tall. Render as a frame from a high-end 3D animated feature film: soft subsurface skin, real fabric texture on the coat, felt hat, glossy eyes with catch lights, soft cinematic studio lighting, shallow depth of field. No text, no labels."
+}

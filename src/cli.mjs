@@ -3,7 +3,7 @@ import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
 import {validateRequest,validateJobId,imageParts,videoPart} from "./schema.mjs";
 import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
-import {prepareReferenceImage,buildVideoRequest} from "./reference-image.mjs";
+import {prepareReferenceImage,buildVideoRequest,buildImageRequest,referenceToGeminiPart} from "./reference-image.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
 function fail(m){throw Error(m);}
 async function post(url,payload){
@@ -27,7 +27,9 @@ async function generate(req,project){
   if(typeof project!=="string" || !/^[a-z][a-z0-9-]{4,62}$/.test(project)) fail("Missing/invalid GCP_PROJECT_ID");
   if(req.kind==="image"){
     const url="https://aiplatform.googleapis.com/v1/projects/"+project+"/locations/global/publishers/google/models/"+req.model+":generateContent";
-    const r=await post(url,{contents:[{role:"user",parts:[{text:req.prompt}]}],generationConfig:{responseModalities:["TEXT","IMAGE"],imageConfig:{aspectRatio:req.aspect_ratio,imageSize:req.image_size}}});
+    const refs=[];
+    for(const source of req.reference_images??[]) refs.push(await referenceToGeminiPart(source));
+    const r=await post(url,buildImageRequest(req,refs));
     const p=imageParts(r)[0]?.inlineData;
     if(!p) fail("Image model returned no supported image");
     return {bytes:outputBytes(p.data),mime:p.mimeType,usage:r.usageMetadata?.totalTokenCount??null};

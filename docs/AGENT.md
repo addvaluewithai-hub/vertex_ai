@@ -22,6 +22,11 @@ Each job is ONE image or ONE video. Required properties: schemaVersion = 1, kind
 
 Valid still models: gemini-3.1-flash-lite-image (default) and gemini-3.1-flash-image. The factory limits output to one 1K still per job. Aspect ratios: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
 
+Optional `reference_images` (1-3 entries) keeps a character or a style consistent: each entry is a file committed under
+`refs/` in this repository (e.g. `refs/peek/peek-present.png`, read from the Actions checkout), a public Cloudinary image
+URL, or a gs:// object. They are sent before the prompt, so the prompt should say how to use them ("keep his design
+exactly as in the attached images"). Ready jobs for the Peek English Shorts are in `jobs/peek-en/`.
+
 ### Video request (dry-run)
 
 ~~~json

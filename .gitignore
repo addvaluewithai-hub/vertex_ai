@@ -8,3 +8,8 @@ gha-creds-*.json
 *.mp4
 *.png
 *.jpg
+
+# Character and style references used as model inputs (image jobs: reference_images)
+!refs/**/*.png
+!refs/**/*.jpg
+!refs/**/*.webp
