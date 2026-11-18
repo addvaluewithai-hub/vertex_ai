@@ -1,0 +1,27 @@
+{
+  "turns": [
+    {
+      "style": "AGENT CROWE, a weary government agent, American English, deep gravelly voice. Shouting across a rainy rooftop, furious and commanding.",
+      "text": "STOP RIGHT THERE!"
+    },
+    {
+      "style": "AGENT CROWE, a weary government agent, American English, deep gravelly voice. Low, quiet and deeply satisfied, almost a whisper.",
+      "text": "Gotcha."
+    }
+  ],
+  "voice": "Algenib",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "en-US"
+    ],
+    "write_vtt": false
+  },
+  "metadata": {
+    "channel": "peek-en",
+    "title": "S01 3D cold open, Crowe"
+  }
+}
