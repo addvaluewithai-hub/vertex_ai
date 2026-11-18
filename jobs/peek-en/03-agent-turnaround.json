@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "image",
+  "model": "gemini-3.1-flash-image",
+  "image_size": "1K",
+  "aspect_ratio": "16:9",
+  "reference_images": [
+    "refs/peek/peek-present.png"
+  ],
+  "prompt": "Character turnaround sheet of AGENT CROWE, a human government agent who hunts aliens. Four views side by side on a plain light grey background: front, three-quarter, side profile, back. A tall lean man in his late forties, square jaw, short grey-black hair, light stubble, black suit, white shirt, narrow black tie, black aviator sunglasses, a coiled earpiece, and a small handheld alien detector with a stubby antenna and a green screen. Serious, tired, determined. Match the rendering style and proportions of the stylized 3D animated feature the attached character comes from, but do NOT include that character. Render as a frame from a high-end 3D animated feature film: soft subsurface skin, real fabric texture on the coat, felt hat, glossy eyes with catch lights, soft cinematic studio lighting, shallow depth of field. No text, no labels."
+}

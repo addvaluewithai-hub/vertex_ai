@@ -10,6 +10,13 @@ export function validatedReferenceImageUri(value) {
     fail("reference_image_uri must be gs://bucket/object or a public Cloudinary image HTTPS URL");
   return u.href;
 }
+// A reference image kept in this repository (committed under refs/), read from the Actions checkout.
+const REPO_REF=/^refs\/([A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+\.(png|jpe?g|webp)$/;
+export function validatedReferenceSource(value) {
+  if (typeof value === "string" && !value.includes("..") && value.length <= 200 && REPO_REF.test(value)) return value;
+  return validatedReferenceImageUri(value);
+}
+export const MAX_IMAGE_REFERENCES = 3;
 export function validatedCloudinaryVideoUrl(value) {
   if (typeof value !== "string" || value.length > 1500) fail("source_video_url must be a Cloudinary HTTPS URL");
   let u;
@@ -28,7 +35,7 @@ export function validateJobId(v) {
 }
 export function validateRequest(x, policy={}) {
   if(!x || typeof x!=="object" || Array.isArray(x)) fail("Expected request JSON object");
-  const allowed=new Set(["schemaVersion","mode","kind","prompt","model","aspect_ratio","image_size","duration_seconds","resolution","reference_image_uri","source_video_url","source_video_uri","trim_start_seconds","trim_duration_seconds","preserve_audio"]);
+  const allowed=new Set(["schemaVersion","mode","kind","prompt","model","aspect_ratio","image_size","duration_seconds","resolution","reference_image_uri","source_video_url","source_video_uri","trim_start_seconds","trim_duration_seconds","preserve_audio","reference_images"]);
   for(const k of Object.keys(x)) if(!allowed.has(k)) fail("Unknown request field: "+k);
   if(x.schemaVersion!==1) fail("schemaVersion must equal 1");
   const mode=x.mode??"dry-run";
@@ -40,11 +47,17 @@ export function validateRequest(x, policy={}) {
   const aspect_ratio=x.aspect_ratio??(image?"1:1":x.kind==="video_edit"?"9:16":"16:9");
   if(!RATIOS.has(aspect_ratio) || (!image && !["16:9","9:16"].includes(aspect_ratio))) fail("Unsupported aspect_ratio");
   const common={schemaVersion:1,mode,kind:x.kind,prompt:x.prompt.trim(),model,aspect_ratio};
+  if(!image && x.reference_images!==undefined) fail("reference_images only applies to images");
   if(image) {
     if(x.duration_seconds!==undefined || x.resolution!==undefined || x.reference_image_uri!==undefined || x.source_video_url!==undefined || x.source_video_uri!==undefined || x.trim_start_seconds!==undefined || x.trim_duration_seconds!==undefined || x.preserve_audio!==undefined) fail("Video fields not allowed in image request");
     const image_size=x.image_size??"1K";
     if(image_size!=="1K") fail("Only 1K images allowed to limit cost");
-    return {...common,image_size};
+    if(x.reference_images===undefined) return {...common,image_size};
+    if(!Array.isArray(x.reference_images) || x.reference_images.length<1 || x.reference_images.length>MAX_IMAGE_REFERENCES)
+      fail("reference_images must list 1-"+MAX_IMAGE_REFERENCES+" images");
+    const reference_images=x.reference_images.map(validatedReferenceSource);
+    if(new Set(reference_images).size!==reference_images.length) fail("reference_images must not repeat");
+    return {...common,image_size,reference_images};
   }
   if(x.image_size!==undefined) fail("image_size only applies to images");
   const resolution=x.resolution??"360p",maxResolution=policy.maxResolution??process.env.MAX_VIDEO_RESOLUTION??"360p";
