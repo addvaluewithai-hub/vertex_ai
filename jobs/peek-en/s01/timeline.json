@@ -1,0 +1,71 @@
+{
+ "dir": "<folder with the downloaded shots>",
+ "voice": "voice.wav",
+ "words": "voice.transcript.json",
+ "shots": [
+  {
+   "src": "s01-shot1-rooftop.png",
+   "dur": 4.5,
+   "move": "in",
+   "audio": "sfx-beeps.wav"
+  },
+  {
+   "src": "vid2b.mp4",
+   "dur": 5.0,
+   "gain": 0.9
+  },
+  {
+   "src": "vid3.mp4",
+   "dur": 5.0,
+   "gain": 0.9
+  },
+  {
+   "src": "s01-shot4-dumpster.png",
+   "dur": 6.0,
+   "move": "in"
+  },
+  {
+   "src": "s01-shot5-apple.png",
+   "dur": 4.9,
+   "move": "down"
+  },
+  {
+   "src": "s01-shot6-earth.png",
+   "dur": 9.0,
+   "move": "out"
+  },
+  {
+   "src": "s01-shot7-moon.png",
+   "dur": 2.9,
+   "move": "in"
+  },
+  {
+   "src": "s01-shot8-diner.png",
+   "dur": 5.6,
+   "move": "in"
+  },
+  {
+   "src": "s01-shot9-clue.png",
+   "dur": 6.6,
+   "move": "in"
+  }
+ ],
+ "voice_parts": [
+  {
+   "from": 0.0,
+   "to": 4.9,
+   "at": 2.6
+  },
+  {
+   "from": 5.0,
+   "to": 39.68,
+   "at": 14.3
+  }
+ ],
+ "end_card": {
+  "dur": 2.5,
+  "bg": "s01-shot9-clue.png",
+  "title": "FIELD REPORT #1",
+  "line": "FOLLOW FOR REPORT #2"
+ }
+}
