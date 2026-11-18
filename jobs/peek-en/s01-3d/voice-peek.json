@@ -1,0 +1,35 @@
+{
+  "turns": [
+    {
+      "style": "PEEK, a small pink alien spy, in American English; warm, smooth, middle register, never shrill. Frozen in fear in the dark: a sharp gasp, then a tiny breathless whisper.",
+      "text": "<gasp> Oh no."
+    },
+    {
+      "style": "PEEK, a small pink alien spy, in American English; warm, smooth, middle register, never shrill. Running for his life: hard, quick panting breaths, out of breath.",
+      "text": "<breath> Hah... hah... hah... hah..."
+    },
+    {
+      "style": "PEEK, a small pink alien spy, in American English; warm, smooth, middle register, never shrill. Floating in slow motion, eyes closed: blissful, dreamy, smug and very slow, almost singing.",
+      "text": "Relax... on my planet... we float."
+    },
+    {
+      "style": "PEEK, a small pink alien spy, in American English; warm, smooth, middle register, never shrill. Sudden horrified realisation: a small gulp, then a long falling scream that trails away.",
+      "text": "<gasp> Uh-oh. WHOOOOAAAAAAA!"
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "en-US"
+    ],
+    "write_vtt": false
+  },
+  "metadata": {
+    "channel": "peek-en",
+    "title": "S01 3D cold open, Peek"
+  }
+}
