@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {validateRequest,audioPart,musicText,buildMusicRequest,responseShape} from "../src/schema.mjs";
+import {validateRequest,audioPart,musicText,buildMusicRequest,responseShape,musicRequestVariants} from "../src/schema.mjs";
 const base={schemaVersion:1,kind:"music",prompt:"Upbeat pop song.\n\nLyrics:\n[Verse]\nالمَأَشَّة\nbroom"};
 test("music defaults to dry-run and the platform-documented model",()=>{
   const r=validateRequest(base);
@@ -33,4 +33,11 @@ test("audio is found in other response layouts, and the shape report hides media
   assert.equal(audioPart({steps:[{type:"model_output",content:[{type:"image",mime_type:"image/png",data:"QUJD"}]}]}),null);
   const shape=JSON.stringify(responseShape({status:"completed",steps:[{type:"model_output",content:[{type:"audio",data:"A".repeat(5000)}]}]}));
   assert.ok(shape.includes("string(5000)") && shape.length<300);
+});
+test("request layouts start with the documented body and all carry the model and the prompt",()=>{
+  const req=validateRequest({...base,mode:"produce"}),v=musicRequestVariants(req);
+  assert.deepEqual(v[0].body,buildMusicRequest(req));
+  assert.equal(v.length,4);
+  for(const x of v){ assert.equal(x.body.model,req.model); assert.ok(JSON.stringify(x.body).includes("broom")); assert.ok(["v1","v1beta1"].includes(x.api)); }
+  assert.equal(new Set(v.map(x=>x.name)).size,4);
 });

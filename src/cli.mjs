@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
-import {validateRequest,validateJobId,imageParts,videoPart,audioPart,musicText,buildMusicRequest,responseShape} from "./schema.mjs";
+import {validateRequest,validateJobId,imageParts,videoPart,audioPart,musicText,musicRequestVariants,responseShape} from "./schema.mjs";
 import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
 import {prepareReferenceImage,buildVideoRequest,buildImageRequest,referenceToGeminiPart} from "./reference-image.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
@@ -36,11 +36,24 @@ async function generate(req,project){
   }
   if(req.kind==="music"){
     // Lyria runs on the Interactions API, global location only.
-    const r=await post("https://aiplatform.googleapis.com/v1/projects/"+project+"/locations/global/interactions",buildMusicRequest(req));
-    if(r.status && r.status!=="completed") fail("Music status "+r.status+" (interaction "+(r.id??"unknown")+")");
-    const p=audioPart(r);
-    if(!p){ const e=Error("Lyria returned no inline audio"); e.shape=JSON.stringify(responseShape(r)).slice(0,3000); throw e; }
-    return {bytes:outputBytes(p.data),mime:p.mime_type??"audio/mpeg",usage:r.usage?.total_tokens??null,interaction_id:r.id??null,text:musicText(r)||null};
+    const notes=[];
+    for(const variant of musicRequestVariants(req)){
+      let r;
+      try{ r=await post("https://aiplatform.googleapis.com/"+variant.api+"/projects/"+project+"/locations/global/interactions",variant.body); }
+      catch(e){
+        // A rejected layout (400/404) generated nothing, so the next layout is safe to try. Anything else stops the job.
+        if(!/^Google Cloud HTTP (400|404):/.test(e.message)) throw e;
+        notes.push(variant.name+": "+e.message.slice(0,160));
+        continue;
+      }
+      const p=audioPart(r);
+      if(p) return {bytes:outputBytes(p.data),mime:p.mime_type??"audio/mpeg",usage:r.usage?.total_tokens??null,interaction_id:r.id??null,text:musicText(r)||null,request_layout:variant.name};
+      const shape=JSON.stringify(responseShape(r)).slice(0,1200);
+      notes.push(variant.name+": no audio "+shape);
+      // Output without audio means the model ran; do not send (and pay for) the same song again.
+      if(Array.isArray(r?.steps)&&r.steps.length){ const e=Error("Lyria returned output without audio"); e.shape=notes.join(" | ").slice(0,3000); throw e; }
+    }
+    const e=Error("Lyria returned no inline audio for any request layout"); e.shape=notes.join(" | ").slice(0,3000); throw e;
   }
   const url="https://aiplatform.googleapis.com/v1beta1/projects/"+project+"/locations/global/interactions";
   if(req.kind==="video_edit"){
@@ -104,7 +117,7 @@ async function main(){
     const url=await publish(local,req.kind==="image"?"image":"video",jobId);
     if(!url) fail("Cloudinary upload failed; model request may already have incurred usage charges.");
     result={...result,status:"completed",completed_at:new Date().toISOString(),
-      usage_tokens:item.usage,interaction_id:item.interaction_id??null,...(item.text?{model_text:item.text}:{}),
+      usage_tokens:item.usage,interaction_id:item.interaction_id??null,...(item.text?{model_text:item.text}:{}),...(item.request_layout?{request_layout:item.request_layout}:{}),
       output:{filename:"out/"+name,mime_type:item.mime,bytes:item.bytes.length,...(url?{url}:{})},
       github_run_url:process.env.GITHUB_REPOSITORY&&process.env.GITHUB_RUN_ID
         ?"https://github.com/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID:null};

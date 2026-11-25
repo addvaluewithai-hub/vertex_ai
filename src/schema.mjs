@@ -143,3 +143,14 @@ export function buildMusicRequest(req) {
   if(req?.kind!=="music") throw Error("Not a music request");
   return {model:req.model,input:[{type:"user_input",content:[{type:"text",text:req.prompt}]}]};
 }
+// The documented body came back "completed" with no steps on the first live jobs, so the factory tries the
+// other request layouts the Interactions API accepts for media, in this order, until one returns audio.
+export function musicRequestVariants(req) {
+  const documented=buildMusicRequest(req), parts=[{type:"text",text:req.prompt}];
+  return [
+    {name:"v1 user_input",api:"v1",body:documented},
+    {name:"v1 string input + audio response_format",api:"v1",body:{model:req.model,input:req.prompt,response_format:{type:"audio"}}},
+    {name:"v1beta1 parts + inline audio response_format",api:"v1beta1",body:{model:req.model,input:parts,response_format:[{type:"audio",delivery:"inline"}]}},
+    {name:"v1beta1 user_input",api:"v1beta1",body:documented}
+  ];
+}
