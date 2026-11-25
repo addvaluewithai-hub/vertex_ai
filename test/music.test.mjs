@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {validateRequest,audioPart,musicText,buildMusicRequest} from "../src/schema.mjs";
+import {validateRequest,audioPart,musicText,buildMusicRequest,responseShape} from "../src/schema.mjs";
 const base={schemaVersion:1,kind:"music",prompt:"Upbeat pop song.\n\nLyrics:\n[Verse]\nالمَأَشَّة\nbroom"};
 test("music defaults to dry-run and the platform-documented model",()=>{
   const r=validateRequest(base);
@@ -26,4 +26,11 @@ test("music payload and decoders follow the Interactions API shape",()=>{
   assert.equal(audioPart(r).data,"QQ==");
   assert.equal(musicText(r),"[Verse] la la");
   assert.equal(audioPart({steps:[{type:"model_output",content:[{type:"text",text:"x"}]}]}),null);
+});
+test("audio is found in other response layouts, and the shape report hides media",()=>{
+  assert.equal(audioPart({outputs:[{type:"audio",mime_type:"audio/wav",data:"QUJD"}]}).mime_type,"audio/wav");
+  assert.equal(audioPart({candidates:[{content:{parts:[{inlineData:{mimeType:"audio/mpeg",data:"QUJD"}}]}}]}).data,"QUJD");
+  assert.equal(audioPart({steps:[{type:"model_output",content:[{type:"image",mime_type:"image/png",data:"QUJD"}]}]}),null);
+  const shape=JSON.stringify(responseShape({status:"completed",steps:[{type:"model_output",content:[{type:"audio",data:"A".repeat(5000)}]}]}));
+  assert.ok(shape.includes("string(5000)") && shape.length<300);
 });

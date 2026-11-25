@@ -112,8 +112,28 @@ export function videoPart(r) {
 export function modelOutputParts(r) {
   return (r?.steps??[]).filter(s=>s?.type==="model_output").flatMap(s=>s.content??[]);
 }
+// Finds the generated audio wherever the response carries it: an Interactions content part
+// ({type:"audio",mime_type,data}) or a generateContent-style part ({inlineData:{mimeType,data}}).
 export function audioPart(r) {
-  return modelOutputParts(r).find(p=>p?.type==="audio" && typeof p.data==="string")??null;
+  const seen=new Set();
+  const walk=(v,depth)=>{
+    if(!v || typeof v!=="object" || depth>8 || seen.has(v)) return null;
+    seen.add(v);
+    if(Array.isArray(v)){ for(const x of v){ const f=walk(x,depth+1); if(f) return f; } return null; }
+    const mime=v.mime_type??v.mimeType;
+    if(typeof v.data==="string" && v.data.length && (v.type==="audio" || /^audio\//.test(mime??""))) return {type:"audio",mime_type:mime??null,data:v.data};
+    for(const k of Object.keys(v)){ const f=walk(v[k],depth+1); if(f) return f; }
+    return null;
+  };
+  return walk(r,0);
+}
+// Structure of a response with every value replaced by its type, for diagnosing an unexpected shape without logging media.
+export function responseShape(v,depth=0) {
+  if(typeof v==="string") return v.length>40?"string("+v.length+")":v;
+  if(v===null || typeof v!=="object") return v;
+  if(depth>6) return "…";
+  if(Array.isArray(v)) return v.slice(0,6).map(x=>responseShape(x,depth+1));
+  return Object.fromEntries(Object.keys(v).slice(0,20).map(k=>[k,responseShape(v[k],depth+1)]));
 }
 // Lyria also returns the lyrics and a description of the song as text.
 export function musicText(r) {
