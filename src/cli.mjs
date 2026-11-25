@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
-import {validateRequest,validateJobId,imageParts,videoPart,audioPart,musicText,buildMusicRequest} from "./schema.mjs";
+import {validateRequest,validateJobId,imageParts,videoPart,audioPart,musicText,buildMusicRequest,responseShape} from "./schema.mjs";
 import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
 import {prepareReferenceImage,buildVideoRequest,buildImageRequest,referenceToGeminiPart} from "./reference-image.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
@@ -39,7 +39,7 @@ async function generate(req,project){
     const r=await post("https://aiplatform.googleapis.com/v1/projects/"+project+"/locations/global/interactions",buildMusicRequest(req));
     if(r.status && r.status!=="completed") fail("Music status "+r.status+" (interaction "+(r.id??"unknown")+")");
     const p=audioPart(r);
-    if(!p) fail("Lyria returned no inline audio");
+    if(!p){ const e=Error("Lyria returned no inline audio"); e.shape=JSON.stringify(responseShape(r)).slice(0,3000); throw e; }
     return {bytes:outputBytes(p.data),mime:p.mime_type??"audio/mpeg",usage:r.usage?.total_tokens??null,interaction_id:r.id??null,text:musicText(r)||null};
   }
   const url="https://aiplatform.googleapis.com/v1beta1/projects/"+project+"/locations/global/interactions";
@@ -109,11 +109,12 @@ async function main(){
       github_run_url:process.env.GITHUB_REPOSITORY&&process.env.GITHUB_RUN_ID
         ?"https://github.com/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID:null};
     if(process.env.CLOUDINARY_URL&&!url) result.delivery_warning="Cloudinary delivery failed; use GitHub artifact";
-  }catch(e){result={...result,status:"failed",error:String(e.message).slice(0,500)};process.exitCode=1;}
+  }catch(e){result={...result,status:"failed",error:String(e.message).slice(0,500),...(e.shape?{response_shape:e.shape}:{})};process.exitCode=1;}
   await writeFile(outputPath,JSON.stringify(result,null,2)+"\n");
   console.log("Job "+jobId+": "+result.status);
   if(result.output?.url) console.log("Media URL: "+result.output.url);
   if(result.status==="failed") console.error(result.error);
+  if(result.response_shape) console.error("Response shape: "+result.response_shape);
 }
 main().catch(e=>{console.error("Factory error: "+e.message);process.exitCode=1;});
 
