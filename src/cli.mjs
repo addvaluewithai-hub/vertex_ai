@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {readFile,writeFile,mkdir} from "node:fs/promises";
 import {join} from "node:path";
-import {validateRequest,validateJobId,imageParts,videoPart} from "./schema.mjs";
+import {validateRequest,validateJobId,imageParts,videoPart,audioPart,musicText,buildMusicRequest} from "./schema.mjs";
 import {prepareEditVideoInput,buildEditRequest,remuxOriginalAudio} from "./edit-video.mjs";
 import {prepareReferenceImage,buildVideoRequest,buildImageRequest,referenceToGeminiPart} from "./reference-image.mjs";
 function arg(k,d){const n=process.argv.indexOf("--"+k);return n<0?d:process.argv[n+1];}
@@ -34,6 +34,14 @@ async function generate(req,project){
     if(!p) fail("Image model returned no supported image");
     return {bytes:outputBytes(p.data),mime:p.mimeType,usage:r.usageMetadata?.totalTokenCount??null};
   }
+  if(req.kind==="music"){
+    // Lyria runs on the Interactions API, global location only.
+    const r=await post("https://aiplatform.googleapis.com/v1/projects/"+project+"/locations/global/interactions",buildMusicRequest(req));
+    if(r.status && r.status!=="completed") fail("Music status "+r.status+" (interaction "+(r.id??"unknown")+")");
+    const p=audioPart(r);
+    if(!p) fail("Lyria returned no inline audio");
+    return {bytes:outputBytes(p.data),mime:p.mime_type??"audio/mpeg",usage:r.usage?.total_tokens??null,interaction_id:r.id??null,text:musicText(r)||null};
+  }
   const url="https://aiplatform.googleapis.com/v1beta1/projects/"+project+"/locations/global/interactions";
   if(req.kind==="video_edit"){
     const prepared=await prepareEditVideoInput(req);
@@ -54,7 +62,7 @@ async function generate(req,project){
   if(!p) fail("Omni returned no inline video");
   return {bytes:outputBytes(p.data),mime:p.mime_type??"video/mp4",usage:r.usage?.total_tokens??null,interaction_id:r.id??null};
 }
-function extension(m){return {"image/png":"png","image/jpeg":"jpg","image/webp":"webp","video/mp4":"mp4"}[m]??null;}
+function extension(m){return {"image/png":"png","image/jpeg":"jpg","image/webp":"webp","video/mp4":"mp4","audio/mpeg":"mp3","audio/mp3":"mp3","audio/wav":"wav","audio/x-wav":"wav"}[m]??null;}
 async function publish(path,kind,jobId){
   if(!process.env.CLOUDINARY_URL) return null;
   try {
@@ -92,10 +100,11 @@ async function main(){
     await mkdir(outDir,{recursive:true});
     const name=jobId+"."+ext,local=join(outDir,name);
     await writeFile(local,item.bytes);
+    // Cloudinary stores audio under the "video" resource type.
     const url=await publish(local,req.kind==="image"?"image":"video",jobId);
     if(!url) fail("Cloudinary upload failed; model request may already have incurred usage charges.");
     result={...result,status:"completed",completed_at:new Date().toISOString(),
-      usage_tokens:item.usage,interaction_id:item.interaction_id??null,
+      usage_tokens:item.usage,interaction_id:item.interaction_id??null,...(item.text?{model_text:item.text}:{}),
       output:{filename:"out/"+name,mime_type:item.mime,bytes:item.bytes.length,...(url?{url}:{})},
       github_run_url:process.env.GITHUB_REPOSITORY&&process.env.GITHUB_RUN_ID
         ?"https://github.com/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID:null};
