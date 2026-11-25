@@ -1,5 +1,9 @@
 const IMAGES = new Set(["gemini-3.1-flash-lite-image", "gemini-3.1-flash-image"]);
 const VIDEOS = new Set(["gemini-omni-1.1-flash-preview"]);
+// Songs. lyria-3-pro-preview and lyria-3-clip-preview are the IDs Google Cloud documents for the Agent Platform;
+// lyria-3.5 is documented for the Gemini Developer API and is accepted here so it can be tried on the platform.
+const MUSIC = new Set(["lyria-3-pro-preview","lyria-3-clip-preview","lyria-3.5"]);
+const MUSIC_FIELDS = new Set(["schemaVersion","mode","kind","prompt","model"]);
 export function validatedReferenceImageUri(value) {
   if (typeof value !== "string" || value.length > 1500) fail("Invalid reference_image_uri");
   if (/^gs:\/\/[a-z0-9][a-z0-9._-]{2,220}\/[^\s?#]{1,800}$/.test(value)) return value;
@@ -40,8 +44,15 @@ export function validateRequest(x, policy={}) {
   if(x.schemaVersion!==1) fail("schemaVersion must equal 1");
   const mode=x.mode??"dry-run";
   if(!["dry-run","produce"].includes(mode)) fail("mode must be dry-run or produce");
-  if(!["image","video","video_edit"].includes(x.kind)) fail("kind must be image, video or video_edit");
+  if(!["image","video","video_edit","music"].includes(x.kind)) fail("kind must be image, video, video_edit or music");
   if(typeof x.prompt!=="string" || x.prompt.trim().length<3 || x.prompt.length>4000) fail("prompt must contain 3-4000 characters");
+  if(x.kind==="music"){
+    // One song per job from a text prompt (style description plus optional "Lyrics:" block). No image input.
+    for(const k of Object.keys(x)) if(!MUSIC_FIELDS.has(k)) fail("Field not allowed in music request: "+k);
+    const model=x.model??"lyria-3-pro-preview";
+    if(!MUSIC.has(model)) fail("Unsupported model for kind");
+    return {schemaVersion:1,mode,kind:"music",prompt:x.prompt.trim(),model};
+  }
   const image=x.kind==="image",model=x.model??(image?"gemini-3.1-flash-lite-image":"gemini-omni-1.1-flash-preview");
   if(!(image?IMAGES:VIDEOS).has(model)) fail("Unsupported model for kind");
   const aspect_ratio=x.aspect_ratio??(image?"1:1":x.kind==="video_edit"?"9:16":"16:9");
@@ -98,3 +109,17 @@ export function videoPart(r) {
   return parts.find(p=>p?.type==="video" && typeof p.data==="string")??(r?.output_video?.data?r.output_video:null);
 }
 
+export function modelOutputParts(r) {
+  return (r?.steps??[]).filter(s=>s?.type==="model_output").flatMap(s=>s.content??[]);
+}
+export function audioPart(r) {
+  return modelOutputParts(r).find(p=>p?.type==="audio" && typeof p.data==="string")??null;
+}
+// Lyria also returns the lyrics and a description of the song as text.
+export function musicText(r) {
+  return modelOutputParts(r).filter(p=>p?.type==="text" && typeof p.text==="string").map(p=>p.text.trim()).filter(Boolean).join("\n\n").slice(0,4000);
+}
+export function buildMusicRequest(req) {
+  if(req?.kind!=="music") throw Error("Not a music request");
+  return {model:req.model,input:[{type:"user_input",content:[{type:"text",text:req.prompt}]}]};
+}

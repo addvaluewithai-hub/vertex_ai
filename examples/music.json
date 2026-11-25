@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "music",
+  "model": "lyria-3-pro-preview",
+  "prompt": "A cheerful acoustic folk song with guitar and claps, around 100 BPM, clear male vocal.\n\nLyrics:\n[Verse]\nGood morning, good morning\nThe sun is on the wall"
+}

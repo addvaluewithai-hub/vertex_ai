@@ -4,6 +4,7 @@ A private, asynchronous image + video generation factory built for autonomous ag
 
 - **Image:** Gemini 3.1 Flash-Lite Image (default) or Gemini 3.1 Flash Image, on Google Cloud Agent Platform.
 - **Video:** Gemini Omni 1.1 Flash Preview via the Google Cloud Interactions API (text-to-video; optional GCS or public Cloudinary reference image).
+- **Music:** Lyria 3 Pro Preview (default), Lyria 3 Clip Preview or Lyria 3.5 via the Interactions API (`kind: "music"`, text prompt with optional lyrics, MP3 out). See [docs/AGENT.md](docs/AGENT.md).
 - **Triggers:** `repository_dispatch` (event `media.generate`), manual `workflow_dispatch`, or owner-created JSON GitHub Issue.
 - **Auth:** GitHub OIDC → Google Cloud Workload Identity Federation → service account. No Google API keys or service account key JSON.
 - **Outputs:** `result.json` (Actions summary and owner-Issue receipt) plus a Cloudinary media URL. GitHub artifact upload is best-effort while the account's artifact quota is exhausted.

@@ -4,7 +4,7 @@ Repository: addvaluewithai-hub/vertex_ai (private). This is an **asynchronous** 
 
 ## Request schema
 
-Each job is ONE image or ONE video. Required properties: schemaVersion = 1, kind = image or video, prompt (3–4000 chars). mode defaults to dry-run; to make a paid request the caller MUST explicitly set mode to produce and have user authorization. All unrecognized fields are rejected.
+Each job is ONE image, ONE video or ONE song. Required properties: schemaVersion = 1, kind = image, video, video_edit or music, prompt (3–4000 chars). mode defaults to dry-run; to make a paid request the caller MUST explicitly set mode to produce and have user authorization. All unrecognized fields are rejected.
 
 ### Image request (dry-run)
 
@@ -43,6 +43,20 @@ exactly as in the attached images"). Ready jobs for the Peek English Shorts are 
 ~~~
 
 Video uses the Google Cloud Agent Platform Interactions API, not the Gemini Developer API. Video length must be an integer between 3 and 10 seconds and <= MAX_VIDEO_SECONDS (Actions Variable default 5). Video output must be <= MAX_VIDEO_RESOLUTION (CLI default 360p; workflow pinned to the owner-approved 720p cap on 2026-10-23). Aspect ratio: 16:9 or 9:16. Optional reference_image_uri accepts a readable gs://bucket/path/to/startframe.png or .jpg, or a public https://res.cloudinary.com/CLOUD/image/upload/...png, .jpg or .webp URL. Cloudinary references are downloaded with a 10 MiB limit and no redirects, checked for their actual image signature, and sent as inline original bytes. No GCS bucket or GCS permissions are needed for Cloudinary input. Higher resolutions still require separate approval and a policy change.
+
+### Music request (dry-run)
+
+~~~json
+{
+  "schemaVersion": 1,
+  "mode": "dry-run",
+  "kind": "music",
+  "model": "lyria-3-pro-preview",
+  "prompt": "High-energy Egyptian mahraganat track, 125 BPM, one male singer, no backing vocals.\n\nLyrics:\n[Verse]\n..."
+}
+~~~
+
+One song per job from a text prompt: describe genre, mood, instruments, tempo and vocals, then put your own lyrics under a `Lyrics:` header with section tags. The only fields are schemaVersion, mode, kind, prompt and model; image and video fields are rejected. Models: lyria-3-pro-preview (default, full songs), lyria-3-clip-preview (always 30 seconds), lyria-3.5. Google Cloud documents the first two for this platform; lyria-3.5 is documented for the Gemini Developer API, so a request for it here may be refused with an HTTP error, which costs nothing. The song is delivered as MP3 on Cloudinary, and result.json carries `model_text` with the lyrics and description Lyria returned.
 
 ## Trigger through GitHub repository_dispatch
 
