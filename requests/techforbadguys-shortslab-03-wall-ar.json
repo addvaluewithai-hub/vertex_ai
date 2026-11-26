@@ -1,0 +1,38 @@
+{
+  "turns": [
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A standalone one-minute report. He quotes the famous claim with mock solemnity, then a dry joke, then the verdict with a beat of pause and a punch on «خرافة».",
+      "text": "«سور الصين العظيم بيتشاف من الفضا».. يا فندم، البشر بيقولوا الجملة دي من زمان. وأنا شخصياً جاي من الفضا.. وماشفتش حاجة. الحكم: <short pause> خرافة."
+    },
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Brisk and clear: where the myth came from and why the wall is hard to see. A little amused.",
+      "text": "الجملة دي اتكتبت سنة ألف سبعمية أربعة وخمسين، وقالت إنه يتشاف من القمر.. قبل ما أي بشري يطلع الفضا بأكتر من ميتين سنة. السور طويل فعلاً، أكتر من عشرين ألف كيلو.. بس رفيّع. ومبني من حجارة وتراب المكان نفسه، فلونه زي لون الأرض اللي حواليه."
+    },
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. Quoting the evidence, crisp, enjoying the astronaut's blunt answer.",
+      "text": "NASA بتقول: من القمر مايبانش خالص، ومن المدار صعب أو مستحيل يتشاف من غير عدسات قوية. وأول رائد فضا صيني، Yang Liwei، طلع سنة ألفين وتلاتة.. ورجع قال: ماشفتوش."
+    },
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A warm, respectful closing line about the wall, then his short sign-off, calm and proud.",
+      "text": "يعني يا فندم، السور مش محتاج الخرافة دي.. هو عظيم كفاية من على الأرض. Peek.. انتهى التقرير يا فندم."
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "ar-EG"
+    ],
+    "write_vtt": true
+  },
+  "metadata": {
+    "channel": "shorts-lab",
+    "title": "تقرير الأرض: Shorts lab 03, سور الصين (myth or fact)",
+    "language": "ar-EG",
+    "recorded_for": "2026-11-15",
+    "script": "episodes/techforbadguys/shorts-lab/03-wall/script.md"
+  }
+}
