@@ -1,0 +1,34 @@
+{
+  "turns": [
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A standalone one-minute report. He opens on the odd fact at once, then tells the little story briskly, deadpan on the popcorn.",
+      "text": "يا فندم، البشر بيسخّنوا أكلهم بجهاز بدأ بحتة حلويات ساحت في جيب مهندس. سنة ألف تسعمية خمسة وأربعين، مهندس اسمه Percy Spencer كان واقف قدام جهاز رادار شغّال.. وحسب الرواية، الحلويات اللي في جيبه ساحت. مازعلش على الجيب. جاب دُرة.. وبقت فشار."
+    },
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A clear teacher counting three steps: crisp «واحد», «اتنين», «تلاتة», brisk and simple.",
+      "text": "طيب الجهاز بيشتغل إزاي؟ تلات خطوات. واحد: قطعة جوّاه اسمها magnetron بتطلّع موجات مابتتشافش. اتنين: الموجات محبوسة في صندوق معدن، بتخبط في حيطانه وترجع على الأكل. تلاتة: المية اللي جوّه الأكل بتتهز مع الموجات مليارات المرات في الثانية.. والهزّ ده بيبقى حرارة."
+    },
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. The twist said with dry satisfaction, the giant first oven with a deadpan aside, then his short sign-off, calm and proud.",
+      "text": "يعني الجهاز مابيسخّنش الأكل يا فندم.. بيخلّي الأكل يسخّن نفسه. وأول واحد اتباع كان طوله متر وتمانين ووزنه تلتمية وأربعين كيلو.. <short pause> ماكانش بيتحط على رخامة المطبخ. Peek.. انتهى التقرير يا فندم."
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "ar-EG"
+    ],
+    "write_vtt": true
+  },
+  "metadata": {
+    "channel": "shorts-lab",
+    "title": "تقرير الأرض: Shorts lab 05, الميكروويف (how it works)",
+    "language": "ar-EG",
+    "recorded_for": "2026-11-15",
+    "script": "episodes/techforbadguys/shorts-lab/05-microwave/script.md"
+  }
+}
