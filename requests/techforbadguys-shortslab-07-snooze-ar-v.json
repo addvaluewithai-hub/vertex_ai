@@ -1,0 +1,25 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "turns": [
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A one-minute deadpan comedy report about a human habit. He opens on the hook at once, quick and dry; the humans' quoted lines are mimicked flatly, a little sleepy; he lands the last line straight-faced, then signs off in three words.",
+   "text": "يا فندم، البشر عندهم جهاز وظيفته الوحيدة إنه يصحّيهم.. وكل يوم الصبح بيتخانقوا معاه عشان صحّاهم. الجهاز اسمه المنبّه. بالليل، البشري بيظبطه بنفسه. بإيده. محدش غصبه. الساعة ستة الصبح، الجهاز بينفّذ الأمر بالحرف. والبشري يضربه. وعشان مايكسروش، البشر اخترعوا زرار اسمه snooze. الزرار ده معناه: «أنا عارف إني قلتلك صحّيني.. بس مش دلوقتي. تعالى كمان شوية.» الجهاز ييجي كمان شوية. والبشري يضربه تاني. المفاوضات دي بتتكرر تلات أربع مرات يا فندم.. والجهاز عمره ما كسب. وفي الآخر البشري يقوم متأخر، يبص للمنبّه ويقوله: «إنت ليه ماصحّيتنيش؟» توصيتي يا فندم: لو هنغزو الكوكب ده.. <short pause> نيجي الساعة ستة الصبح. محدش هيقوم. Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-shortslab-07-snooze-ar-v",
+  "language": "ar-EG",
+  "title": "Shorts lab 07-snooze (ar)"
+ }
+}
