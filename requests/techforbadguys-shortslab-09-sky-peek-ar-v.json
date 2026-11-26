@@ -1,0 +1,41 @@
+{
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "voice": "Puck",
+ "turns": [
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. He is answering his commander's short questions over a link, one answer at a time: quick, clear, respectful and a little amused.",
+   "text": "يا فندم، سما الكوكب ده زرقا.. مع إن ضوء شمسهم أبيض."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. He is answering his commander's short questions over a link, one answer at a time: quick, clear, respectful and a little amused.",
+   "text": "الضوء الأبيض يا فندم هو كل الألوان مخلوطة في بعض. ولما بيدخل الهوا، بيخبط في جزيئات الغاز ويتبعتر في كل ناحية. والأزرق موجته قصيرة.. فبيتبعتر أكتر من باقي الألوان، ويملا السما كلها."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. He is answering his commander's short questions over a link, one answer at a time: quick, clear, respectful and a little amused.",
+   "text": "ساعة الغروب الشمس بتبقى واطية، فضوءها بيعدّي في هوا أكتر عشان يوصل. الأزرق بيتبعتر ويضيع في السكة.. واللي بيوصل هو الأحمر والأصفر."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. He is answering his commander's short questions over a link, one answer at a time: quick, clear, respectful and a little amused.",
+   "text": "نفس السبب يا فندم. اللون اللي بيملا لهم النهار.. هو اللي بيضيع منهم في الغروب."
+  },
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. He is answering his commander's short questions over a link, one answer at a time: quick, clear, respectful and a little amused.",
+   "text": "أغلبهم لأ يا فندم. <short pause> بيصوّروه وخلاص. Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-shortslab-09-sky-peek-ar-v",
+  "language": "ar-EG",
+  "title": "Shorts lab 09 sky, Peek lines"
+ }
+}

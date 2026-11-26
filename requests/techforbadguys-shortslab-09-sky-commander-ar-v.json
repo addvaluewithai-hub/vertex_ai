@@ -1,0 +1,37 @@
+{
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "voice": "Charon",
+ "turns": [
+  {
+   "style": "An alien commander at headquarters, heard over a long-distance radio link, speaking Egyptian Arabic, Cairo dialect, not Modern Standard Arabic. Deep, low, heavy voice, slow and flat. He asks short questions, unimpressed, with no warmth and no hurry.",
+   "text": "وليه زرقا؟"
+  },
+  {
+   "style": "An alien commander at headquarters, heard over a long-distance radio link, speaking Egyptian Arabic, Cairo dialect, not Modern Standard Arabic. Deep, low, heavy voice, slow and flat. He asks short questions, unimpressed, with no warmth and no hurry.",
+   "text": "وليه بتحمرّ ساعة الغروب؟"
+  },
+  {
+   "style": "An alien commander at headquarters, heard over a long-distance radio link, speaking Egyptian Arabic, Cairo dialect, not Modern Standard Arabic. Deep, low, heavy voice, slow and flat. He asks short questions, unimpressed, with no warmth and no hurry.",
+   "text": "يعني نفس السبب؟"
+  },
+  {
+   "style": "An alien commander at headquarters, heard over a long-distance radio link, speaking Egyptian Arabic, Cairo dialect, not Modern Standard Arabic. Deep, low, heavy voice, slow and flat. He asks short questions, unimpressed, with no warmth and no hurry.",
+   "text": "والبشر عارفين ده؟"
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-shortslab-09-sky-commander-ar-v",
+  "language": "ar-EG",
+  "title": "Shorts lab 09 sky, commander lines"
+ }
+}
