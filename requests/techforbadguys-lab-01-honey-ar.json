@@ -1,0 +1,26 @@
+{
+  "turns": [
+    {
+      "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A field report to the commander: curious, a little amused, sure of the science; the tomb story told as a story, not a fact.",
+      "text": "يا فندم، البشر عندهم أكل مالوش تاريخ صلاحية.. <short pause> العسل. فيه حكاية مشهورة عندهم: علما آثار فتحوا مقبرة مصرية قديمة، لقوا جرّة عسل عمرها آلاف السنين، وداقوها.. ولسه حلوة. الحكاية دي بتتقال كتير يا فندم، بس أنا دوّرت.. ومالقيتش عليها دليل مؤكد. الغريب بقى إن العلم بيقول إنها ممكنة. العسل فيه مية قليلة جداً، أقل من الخُمس، والباقي تقريباً كله سكر. والسكر ده كتير لدرجة إن أغلب الميكروبات ماتعرفش تعيش فيه. وكمان العسل حمضي، والنحل بيحط فيه إنزيم بيطلّع مادة مطهّرة. يعني النحل اخترع حفظ الأكل قبل ما البشر يخترعوا التلاجة. بس بشرط واحد: البرطمان يفضل مقفول، لإن العسل بيشرب مية من الهوا.. وساعتها يبوظ. الخلاصة يا فندم: على الكوكب ده.. البرطمان المقفول ممكن يعيش أكتر من اللي قفله. Peek.. انتهى التقرير يا فندم."
+    }
+  ],
+  "voice": "Puck",
+  "routing": "quality",
+  "format": "wav",
+  "sample_rate": 24000,
+  "temperature": 1,
+  "transcript": {
+    "language_codes": [
+      "ar-EG"
+    ],
+    "write_vtt": true
+  },
+  "metadata": {
+    "channel": "techforbadguys",
+    "title": "تقرير الأرض: عسل الفراعنة (shorts lab 01)",
+    "language": "ar-EG",
+    "recorded_for": "shorts-lab",
+    "script": "episodes/techforbadguys/shorts-lab/lab-01-honey/script.md"
+  }
+}
