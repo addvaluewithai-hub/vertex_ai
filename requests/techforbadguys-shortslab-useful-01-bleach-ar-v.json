@@ -1,0 +1,25 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "turns": [
+  {
+   "style": "A small alien spy on Earth filing a field report to his commanders back home about something he has observed among humans, in Egyptian Arabic, Cairo street dialect, not Modern Standard Arabic. He calls them يا فندم now and then. He explains what he found clearly and simply, a little amused. Brisk pace, noticeably quicker than ordinary conversation, and no dead air: he goes straight from one sentence into the next. Bright, higher-pitched, slightly nasal voice, never deep or gravelly. Dry, deadpan Egyptian sarcasm; he never laughs at his own jokes. English names are said the English way. A one-minute field note that carries a real safety rule. Quick and dry while he tells what the humans do; then clear, a little slower and plain on the instructions, so nobody mishears them; the last joke dry again, then he signs off in three words.",
+   "text": "يا فندم، البشر بيخلطوا الكلور بمنظف التواليت عشان الحمام ينضف أكتر.. فبيطلع لهم غاز سام. المنطق بتاعهم بسيط: منظف قوي، زائد منظف قوي.. يبقى نضافة أقوى. الكيميا ليها رأي تاني. الكلور مع أي حمض، زي منظفات التواليت أو الخل، بيطلّع غاز الكلور. ومع النشادر، اللي في بعض منظفات الإزاز، بيطلّع غاز سام تاني. والنتيجة: كحة، عين بتحرق، ونَفَس مش طالع.. في حمام مقفول. وهي كل اللي كانت عايزاه.. إن القاعدة تلمع. لو حصل: اخرج فوراً لهوا نضيف. ولو النَفَس تعبان، اتصل بالإسعاف وقول لهم إنت خلطت إيه. والقاعدة يا فندم: منظف واحد بس في المرة. تشطف بمية كتير قبل ما تستعمل التاني. والشباك مفتوح. والكلور ماينخلطش بأي منظف. يعني البشر بيخاطروا بصدرهم.. عشان بقعة. Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-shortslab-useful-01-bleach-ar-v",
+  "language": "ar-EG",
+  "title": "Shorts lab useful-01-bleach (ar)"
+ }
+}
