@@ -1,0 +1,73 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "turns": [
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a hushed, urgent whisper into a hidden microphone, as if the humans might hear him. Tense and secretive.",
+   "text": "يا فندم.. البشر بيصنّعوا غاز سام في الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: normal voice again, weary and flat, a patient correction to a boss who always guesses the rude thing. Dry as dust.",
+   "text": "<short pause> لأ يا فندم.. مش اللي في بالك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a nature documentary narrator admiring a fearsome predator. Awed, measured, relishing «بتعلن الحرب».",
+   "text": "كل جمعة، الأم المصرية بتعلن الحرب على الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a bored lecturer reciting a doctrine he finds insane: flat, even steps one and two, a sceptical raised «تلاتة؟», then the last phrase with grand mock-religious reverence, slow and wide.",
+   "text": "وعقيدتها بسيطة: منظف ينضّف.. اتنين ينضّفوا أكتر.. تلاتة؟ <short pause> الحمّام يتولد من جديد."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: serious and clear, a scientist giving evidence. Unhurried, each product separated by a small pause, the last two words slow and cold.",
+   "text": "بس الكلور مع منظف التواليت، أو الخل، أو بعض منظفات الإزاز.. بيطلّع غاز سام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a medic reading a chart, grim and fast, each item bitten off.",
+   "text": "كحة. <short pause> عين بتحرق. <short pause> صدر بيوجع."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: bone-dry deadpan, quiet, almost admiring the absurdity. «وهي؟» small and high, «فخورة» very flat, the rest with a tired sigh in the voice.",
+   "text": "وهي؟ <short pause> فخورة. فاكراها ريحة النضافة."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: sharp and forceful, a sergeant barking a warning. Loud, hard consonants, «إنذار» punched.",
+   "text": "<gasp> دي مش ريحة نضافة.. ده إنذار!"
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: calm, firm and plain, a safety officer who needs every listener to remember this. Slow and even, a full stop after each instruction, «أبداً» heavy.",
+   "text": "القاعدة: الكلور ما يتخلطش بأي منظف تاني. <short pause> أبداً. واشطف كويس بين كل منظف والتاني، وافتح الشباك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: brisk emergency instructions, clear and steady, a little faster, stress on «اخرج فوراً» and «اتصل بالإسعاف».",
+   "text": "ولو حصل: اخرج فوراً لهوا نضيف. ولو النَفَس صعب، اتصل بالإسعاف وقول لهم خلطت إيه."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: dry and fond. A shrug on «هيلمع برضه», then slow deadpan, and the last phrase underplayed, quiet and perfectly serious, which is what makes it funny.",
+   "text": "والتواليت؟ <short pause> هيلمع برضه. وهتقف تتفرّج عليه.. كإنه دخل كلية الطب."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a tired sigh first, then a confidential mutter, slower, with a knowing pause before «فده تقرير تاني».",
+   "text": "<sigh> أما الغاز اللي في بالك.. فده تقرير تاني."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: crisp military sign-off. Short, bright, final.",
+   "text": "Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-v2a-bleach-b1",
+  "language": "ar-EG",
+  "title": "Shorts lab v2 bleach, studio A, take b1"
+ }
+}

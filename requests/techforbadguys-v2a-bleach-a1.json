@@ -1,0 +1,73 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "turns": [
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: mock-solemn and grave, like breaking a state secret on the evening news. Slow, low, weighty, with a dramatic stress on «غاز سام».",
+   "text": "يا فندم.. البشر بيصنّعوا غاز سام في الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a complete change. Quick, flat, slightly embarrassed aside, higher and lighter, as if the commander just guessed something rude. Throwaway.",
+   "text": "<short pause> لأ يا فندم.. مش اللي في بالك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a war correspondent at the front. Energetic, rising, punchy, stress on «الحرب».",
+   "text": "كل جمعة، الأم المصرية بتعلن الحرب على الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: counting on his fingers with growing excitement, each step higher and faster; «تلاتة؟» shoots up as a question; then the last phrase drops to a slow, hushed, awestruck revelation, like a miracle.",
+   "text": "وعقيدتها بسيطة: منظف ينضّف.. اتنين ينضّفوا أكتر.. تلاتة؟ <short pause> الحمّام يتولد من جديد."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: the comedy stops. Lower, slower, ominous, like a crime documentary. Each product named clearly and separately. Heavy stress on «غاز سام».",
+   "text": "بس الكلور مع منظف التواليت، أو الخل، أو بعض منظفات الإزاز.. بيطلّع غاز سام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: three hammer blows. Clipped, worried, each item its own short sentence, falling pitch.",
+   "text": "كحة. <short pause> عين بتحرق. <short pause> صدر بيوجع."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: appalled disbelief. «وهي؟» goes up, incredulous; «فخورة» lands flat and stunned; the rest slow, shaking his head.",
+   "text": "وهي؟ <short pause> فخورة. فاكراها ريحة النضافة."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: sudden alarm! He loses his composure for the only time: loud, high, urgent, almost shouting, fast. «إنذار» is the peak.",
+   "text": "<gasp> دي مش ريحة نضافة.. ده إنذار!"
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: clipped and official, reading a standing order. Slower than the rest, every word separated and perfectly clear, no humour at all. «أبداً» alone, firm and final.",
+   "text": "القاعدة: الكلور ما يتخلطش بأي منظف تاني. <short pause> أبداً. واشطف كويس بين كل منظف والتاني، وافتح الشباك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: still official but urgent and helpful. Clear, steady, stress on «فوراً» and «الإسعاف». No jokes.",
+   "text": "ولو حصل: اخرج فوراً لهوا نضيف. ولو النَفَس صعب، اتصل بالإسعاف وقول لهم خلطت إيه."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: relaxed again, warm and amused. «والتواليت؟» light and curious; then fond storytelling; the last phrase «كإنه دخل كلية الطب» announced with the swelling pride of an Egyptian mother.",
+   "text": "والتواليت؟ <short pause> هيلمع برضه. وهتقف تتفرّج عليه.. كإنه دخل كلية الطب."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: a tired sigh first, then low, quick and conspiratorial, between him and the commander only. Trailing down at the end.",
+   "text": "<sigh> أما الغاز اللي في بالك.. فده تقرير تاني."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. THIS LINE: crisp military sign-off. Short, bright, final.",
+   "text": "Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-v2a-bleach-a1",
+  "language": "ar-EG",
+  "title": "Shorts lab v2 bleach, studio A, take a1"
+ }
+}
