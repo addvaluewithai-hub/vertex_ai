@@ -1,0 +1,73 @@
+{
+ "voice": "Puck",
+ "routing": "quality",
+ "format": "wav",
+ "sample_rate": 24000,
+ "temperature": 1,
+ "transcript": {
+  "language_codes": [
+   "ar-EG"
+  ],
+  "write_vtt": true
+ },
+ "turns": [
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: a tense, low murmur into a hidden microphone, as if the humans might hear him, every word still perfectly clear. Stress «غاز سام».",
+   "text": "يا فندم.. البشر بيصنّعوا غاز سام في الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: weary and flat, the patient correction of a boss who always guesses the rude thing. Dry as dust, quick.",
+   "text": "لأ يا فندم.. مش اللي في بالك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: a nature documentary narrator admiring a fearsome predator, awed, relishing «بتعلن الحرب», moving along.",
+   "text": "كل جمعة، الأم المصرية بتعلن الحرب على الحمّام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: a lecturer reciting a doctrine he finds insane: flat quick steps one and two, a sceptical raised «تلاتة؟», then the last phrase with grand mock-religious reverence.",
+   "text": "وعقيدتها بسيطة: منظف ينضّف. اتنين ينضّفوا أكتر. تلاتة؟ <short pause> الحمّام يتولد من جديد."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: serious and clear, a scientist giving evidence, each product distinct, the last two words cold and hard.",
+   "text": "بس الكلور مع منظف التواليت، أو الخل، أو بعض منظفات الإزاز.. بيطلّع غاز سام."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: a medic reading a chart, grim and fast, each item bitten off.",
+   "text": "كحة. عين بتحرق. صدر بيوجع."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: bone-dry deadpan, almost admiring the absurdity. «وهي؟» small and high, «فخورة» very flat, the rest with a tired sigh in the voice.",
+   "text": "وهي؟ <short pause> فخورة. فاكراها ريحة النضافة."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: sharp and forceful, a sergeant barking a warning. Loud, fast, hard consonants, «إنذار» punched.",
+   "text": "<gasp> دي مش ريحة نضافة.. ده إنذار!"
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: calm, firm and plain, a safety officer who needs every listener to remember this. Even and clear, «أبداً» heavy, no dawdling.",
+   "text": "القاعدة: الكلور ما يتخلطش بأي منظف تاني. أبداً. واشطف كويس بين كل منظف والتاني، وافتح الشباك."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: brisk emergency instructions, clear and steady, stress on «اخرج فوراً» and «اتصل بالإسعاف».",
+   "text": "ولو حصل: اخرج فوراً لهوا نضيف. ولو النَفَس صعب، اتصل بالإسعاف وقول لهم خلطت إيه."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: dry and fond. A shrug on «هيلمع برضه», then deadpan, and the last phrase underplayed, quiet and perfectly serious, which is what makes it funny.",
+   "text": "والتواليت؟ هيلمع برضه. وهتقف تتفرّج عليه.. كإنه دخل كلية الطب."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: a tired sigh first, then a confidential mutter with a knowing little pause before «فده تقرير تاني».",
+   "text": "<sigh> أما الغاز اللي في بالك.. فده تقرير تاني."
+  },
+  {
+   "style": "Peek, a small alien spy on Earth, filing a voice report to his commander back home, in Egyptian Arabic, Cairo street dialect, never Modern Standard Arabic. Bright, higher-pitched, slightly nasal cartoon voice, never deep or gravelly. He is an outsider studying humans with a straight face and never laughs at his own jokes. English names are said the English way. Pace: fast and tight, clearly quicker than ordinary conversation, no long silences inside a sentence. Cairo pronunciation throughout: تاني not ثاني, اتنين not اثنين, نضيف not نظيف. THIS LINE: crisp military sign-off, a little cheerful, glad to be done. Short and final.",
+   "text": "Peek.. انتهى التقرير يا فندم."
+  }
+ ],
+ "metadata": {
+  "channel": "techforbadguys",
+  "job_id": "techforbadguys-v2a-bleach-b2",
+  "language": "ar-EG",
+  "title": "Shorts lab v2 bleach, studio A, take b2"
+ }
+}
